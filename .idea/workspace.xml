@@ -14,7 +14,28 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79339780-1289-4e5c-8ec2-e953dc705329" name="Default" comment="" />
+    <list default="true" id="79339780-1289-4e5c-8ec2-e953dc705329" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeRCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.11.0/CompilerIdCXX/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.cxx" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.cxx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/work/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +47,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ex1.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ex1.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="62" column="77" selection-start-line="62" selection-start-column="77" selection-end-line="62" selection-end-column="77" />
+            <state relative-caret-position="550">
+              <caret line="77" column="62" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -38,8 +68,71 @@
       <file leaf-file-name="skeleton.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+            <state relative-caret-position="2465">
+              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+              <folding>
+                <element signature="e#1415#1431#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="printer.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/printer.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <folding>
+                <element signature="e#43#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_bone_1.asf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/res/models/test_bone_1.asf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_bone_2.asf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/res/models/test_bone_2.asf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scrap_parser.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/scrap_parser.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2142">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="skeleton.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2006">
+              <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
+              <folding>
+                <element signature="e#1242#1258#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mesh.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2295">
+              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -47,8 +140,8 @@
       <file leaf-file-name="ex1.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="771">
-              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+            <state relative-caret-position="1581">
+              <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
               <folding>
                 <element signature="e#14#38#0" expanded="true" />
               </folding>
@@ -140,6 +233,7 @@
         <option value="$PROJECT_DIR$/work/src/skeleton.cpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.hpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.cpp" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -170,24 +264,6 @@
             <path>
               <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
               <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
-              <item name="work" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cgra" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,30 +363,40 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189372000" />
+    <option name="totallyTimeSpent" value="189758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.27813852" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32900432" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32900432" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
+      <window_info anchor="bottom" id="CMake" order="7" weight="0.27813852" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,13 +411,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2907">
@@ -524,7 +603,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/scrap_parser.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
+        <state relative-caret-position="2142">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
         </state>
       </provider>
@@ -532,7 +611,7 @@
     <entry file="file://$PROJECT_DIR$/work/res/shaders/simple-sphere.fs.glsl" />
     <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="2295">
           <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
         </state>
       </provider>
@@ -555,6 +634,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -582,8 +664,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="2006">
+          <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
           <folding>
             <element signature="e#1242#1258#0" expanded="true" />
           </folding>
@@ -592,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+        <state relative-caret-position="1581">
+          <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
           <folding>
             <element signature="e#14#38#0" expanded="true" />
           </folding>
@@ -602,15 +684,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+        <state relative-caret-position="2465">
+          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+          <folding>
+            <element signature="e#1415#1431#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="62" column="77" selection-start-line="62" selection-start-column="77" selection-end-line="62" selection-end-column="77" />
+        <state relative-caret-position="550">
+          <caret line="77" column="62" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
