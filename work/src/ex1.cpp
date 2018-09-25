@@ -47,12 +47,12 @@ void Application::init() {
 	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", -2);
 	m_sphere_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", -1);
 
-	keyframes.emplace_back(-1, 0, 0);
+	keyframes.emplace_back(-5, 0, 0);
 	// TODO - delete these two later
-	keyframes.emplace_back(-0.5, 0.5, 0);
-	keyframes.emplace_back(0.5, 0.5, 0);
+	keyframes.emplace_back(-2.5, 2.5, 0);
+	keyframes.emplace_back(2.5, 2.5, 0);
 
-	keyframes.emplace_back(1, 0, 0);
+	keyframes.emplace_back(5, 0, 0);
 
 	/*for (int i = 0; i < m_skeleton.m_bones.size(); ++i) {
 		bone b = m_skeleton.m_bones[i];
