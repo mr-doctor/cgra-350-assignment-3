@@ -1,2 +1,0 @@
-C:\PROGRA~1\mingw64\mingw32\bin\ar.exe qc ..\..\bin\libglew.a  CMakeFiles/glew.dir/src/glew.c.obj
-C:\PROGRA~1\mingw64\mingw32\bin\ranlib.exe ..\..\bin\libglew.a
