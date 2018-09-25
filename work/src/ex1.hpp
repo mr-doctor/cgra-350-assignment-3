@@ -67,10 +67,12 @@ public:
 
 	Skeleton m_skeleton = Skeleton("");
 
-	cgra::Mesh loadObj(const char *filename, int id);
+	cgra::Mesh loadObj(const char *filename, glm::vec3 colour);
 
 	static cgra::Mesh m_bone_mesh;
 	static cgra::Mesh m_sphere_mesh;
+	cgra::Mesh m_sphere_mesh_2;
+	static cgra::Mesh m_bone_segment_mesh;
 
 	static void draw_bone(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 rotate,
 	                      glm::vec3 global_translation,
@@ -78,8 +80,6 @@ public:
 
 	static void draw(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 model_transform);
 
-
-	static cgra::Mesh m_bone_segment_mesh;
 
 	void do_T();
 

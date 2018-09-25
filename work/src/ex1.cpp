@@ -41,32 +41,33 @@ void Application::init() {
 	m_program.setViewMatrix(viewMatrix);
 
 	glm::vec3 rotation(1.0f, 1.0f, 0.0f);
-	m_rotationMatrix = glm::rotate(glm::mat4(1.0f), 45.0f, glm::vec3(rotation[0], rotation[1], rotation[2]));
+	m_rotationMatrix = glm::rotate(glm::mat4(1.0f), 0.0f, glm::vec3(rotation[0], rotation[1], rotation[2]));
 
-	m_bone_mesh = loadObj(CGRA_SRCDIR "/res/models/frustrum-small.obj", -2);
-	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", -2);
-	m_sphere_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", -1);
+//	m_bone_mesh = loadObj(CGRA_SRCDIR "/res/models/frustrum-small.obj", 0);
+//	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", 0);
+	m_sphere_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 1.0));
+	m_sphere_mesh_2 = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
 
-	keyframes.emplace_back(-5, 0, 0);
-	// TODO - delete these two later
-	keyframes.emplace_back(-2.5, 2.5, 0);
-	keyframes.emplace_back(2.5, 2.5, 0);
-
-	keyframes.emplace_back(5, 0, 0);
+	keyframes.emplace_back(-7.5, -1, 0);
+	keyframes.emplace_back(-5, 1, 0);
+	keyframes.emplace_back(-2.5, -1, 0);
+	keyframes.emplace_back(0, 1, 0);
+	keyframes.emplace_back(2.5, -1, 0);
+	keyframes.emplace_back(5, 1, 0);
+	keyframes.emplace_back(7.5, -1, 0);
 
 	/*for (int i = 0; i < m_skeleton.m_bones.size(); ++i) {
 		bone b = m_skeleton.m_bones[i];
 		b.rotate = glm::lookAt(glm::vec3(0, 0, -1), b.boneDir, glm::vec3(0, 1, 0));
 		b.rotate[0][0] += 1;
 	}*/
-
-	show_spline(keyframes[0], keyframes[1], keyframes[2], keyframes[3], 100);
-
-//	printer::print(m_skeleton);
+	for (int i = 0; i < keyframes.size() - 3; i+=1) {
+		show_spline(keyframes[i], keyframes[i+1], keyframes[i+2], keyframes[i+3], 50);
+	}
 
 }
 
-cgra::Mesh Application::loadObj(const char *filename, int id) {
+cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	std::ifstream obj_file(filename);
 	if (!obj_file.is_open()) {
 		std::cerr << "File not open\n";
@@ -77,13 +78,6 @@ cgra::Mesh Application::loadObj(const char *filename, int id) {
 		cgra::Mesh empty_mesh;
 		empty_mesh.setData(vertices, triangles, glm::vec3(0));
 		return empty_mesh;
-	}
-
-	glm::vec3 colour(0.0, 1.0, 0.0);
-	if (id == -2) {
-		colour = {0.4, 0.4, 0.4};
-	} else if (id == -1) {
-		colour = {0.0, 1.0, 1.0};
 	}
 
 	unsigned int num_vertices = 0;
@@ -248,7 +242,10 @@ void Application::drawScene() {
 	model_transform *= m_rotationMatrix;
 
 	for (unsigned int i = 0; i < new_points.size(); i++) {
-		draw(m_sphere_mesh, new_points[i], glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(1), glm::mat4(1.0));
+		draw(m_sphere_mesh, new_points[i], glm::vec3(0.02), glm::mat4(1.0), glm::vec3(0), glm::vec3(1), m_rotationMatrix);
+	}
+	for (unsigned int i = 0; i < keyframes.size(); i++) {
+		draw(m_sphere_mesh_2, keyframes[i], glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(1), m_rotationMatrix);
 	}
 
 //	m_skeleton.renderSkeleton(model_transform, m_translation, glm::vec3(m_scale), m_rotationMatrix, core);
