@@ -10,21 +10,22 @@
 namespace cgra {
 
     class Mesh {
-        // Represents a single vertex in the mesh
-        struct Vertex {
-            // The position of the vertex
-            glm::vec3 m_position;
-            // The normal at the vertex
-            glm::vec3 m_normal;
 
-            glm::vec3 m_colour;
+		// Represents a single vertex in the mesh
+		struct Vertex {
+			// The position of the vertex
+			glm::vec3 m_position;
+			// The normal at the vertex
+			glm::vec3 m_normal;
 
-            Vertex(glm::vec3 pos, glm::vec3 norm, glm::vec3 colour) :
-                m_position(pos), m_normal(norm), m_colour(colour){ }
-        };
+			glm::vec3 m_colour;
 
-        // A list of all the vertices in the mesh
-        std::vector<Vertex> m_vertices;
+			Vertex(glm::vec3 pos, glm::vec3 norm, glm::vec3 colour) :
+					m_position(pos), m_normal(norm), m_colour(colour){ }
+		};
+
+		std::vector<Vertex> m_vertices;
+		// A list of all the vertices in the mesh
         // A list of indices into m_vertices.
         // Every three indices represents a triangle,
         // For example, the list:
@@ -55,7 +56,6 @@ namespace cgra {
         GLuint m_ibo;
 
     public:
-
         // Set the mesh data using two Matrices.
         //
         // `vertices` is an n x 3 matrix of vertex positions
@@ -149,6 +149,6 @@ namespace cgra {
         ~Mesh() {
             deleteMesh();
         }
-    };
+	};
 
 }

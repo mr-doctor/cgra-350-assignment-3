@@ -70,8 +70,11 @@ public:
 	cgra::Mesh loadObj(const char *filename, glm::vec3 colour);
 
 	static cgra::Mesh m_bone_mesh;
-	static cgra::Mesh m_sphere_mesh;
-	cgra::Mesh m_sphere_mesh_2;
+	static cgra::Mesh m_sphere_mesh_cyan;
+	cgra::Mesh m_sphere_mesh_yellow;
+	static cgra::Mesh m_sphere_mesh_red;
+	static cgra::Mesh m_sphere_mesh_green;
+	cgra::Mesh m_cube_mesh;
 	static cgra::Mesh m_bone_segment_mesh;
 
 	static void draw_bone(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 rotate,
@@ -81,18 +84,41 @@ public:
 	static void draw(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 model_transform);
 
 
-	void do_T();
-
 	static void draw(cgra::Mesh mesh, glm::vec3 position, glm::vec3 scale, glm::mat4 rotate, glm::vec3 global_translation,
 					 glm::vec3 global_scale, glm::mat4 global_rotation);
 
-	bool core;
-
 	std::vector<glm::vec3> keyframes;
+	std::vector<glm::vec3> speed_curve;
 
-	void show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points);
+	void show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points, std::vector<glm::vec3> * points);
 
 	float get_t(float t, glm::vec3 p0, glm::vec3 p1);
 
 	std::vector<glm::vec3> new_points;
+	std::vector<glm::vec3> speed_points;
+
+	void update();
+
+	float point_index = 0;
+	float speed = 1.0;
+	float m_depth = -1;
+
+
+	int selected = -1;
+
+	glm::vec3 screen_to_world_coord(double mouse_x, double mouse_y);
+
+	glm::mat4 m_view;
+	glm::mat4 m_proj;
+	static glm::mat4 m_model;
+
+	void manipulate(glm::vec3 mouse_point);
+
+	void update_spline();
+
+	bool left_held = false;
+
+	void update_speed_spline();
+
+	bool select_keyframe = false;
 };

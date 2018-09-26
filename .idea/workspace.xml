@@ -15,8 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79339780-1289-4e5c-8ec2-e953dc705329" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/cgra/mesh.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/cgra/mesh.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/skeleton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/skeleton.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/work/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,101 +36,8 @@
       <file leaf-file-name="ex1.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="6" selection-start-column="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="skeleton.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
-              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
-              <folding>
-                <element signature="e#1415#1431#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="printer.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/printer.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-              <folding>
-                <element signature="e#43#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_bone_1.asf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/res/models/test_bone_1.asf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_bone_2.asf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/res/models/test_bone_2.asf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scrap_parser.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/scrap_parser.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="126" selection-start-line="126" selection-end-line="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="skeleton.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
-              <folding>
-                <element signature="e#1242#1258#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mesh.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ex1.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-              <folding>
-                <element signature="e#14#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-32">
+              <caret line="397" column="23" lean-forward="true" selection-start-line="397" selection-start-column="23" selection-end-line="397" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -135,20 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>axes</find>
-      <find>false, 0</find>
-      <find>cgra</find>
-      <find>cgra::Bone</find>
-      <find>bones</find>
-      <find>m_bones</find>
-      <find>m_rotationMatrix</find>
-      <find>m_program</find>
-      <find>tvec</find>
-      <find>tvec3</find>
-      <find>program</find>
-      <find>shader</find>
-      <find>glm::mat4(1)</find>
-      <find>/*</find>
       <find>rotate</find>
       <find>renderB</find>
       <find>findBo</find>
@@ -163,8 +60,22 @@
       <find>core</find>
       <find>show</find>
       <find>scene</find>
-      <find>draw</find>
       <find>rotation</find>
+      <find>drawS</find>
+      <find>drawSc</find>
+      <find>m_proj</find>
+      <find>projection</find>
+      <find>selected ==</find>
+      <find>vertex</find>
+      <find>m_depth</find>
+      <find>printer:</find>
+      <find>update</find>
+      <find>draw</find>
+      <find>t</find>
+      <find>thres</find>
+      <find>printer</find>
+      <find>arc</find>
+      <find>keyframes</find>
     </findStrings>
     <replaceStrings>
       <replace>0.5 : -0.5</replace>
@@ -178,6 +89,8 @@
       <replace>global_rtation</replace>
       <replace>align</replace>
       <replace>glm::vec3</replace>
+      <replace>m_model</replace>
+      <replace>speed_curve</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -186,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/work/src/main.cpp" />
         <option value="$PROJECT_DIR$/work/res/shaders/cook-torrance.vs.glsl" />
         <option value="$PROJECT_DIR$/work/res/shaders/cook-torrance.fs.glsl" />
         <option value="$PROJECT_DIR$/work/res/shaders/oren-nayar.fs.glsl" />
@@ -208,12 +120,13 @@
         <option value="$PROJECT_DIR$/work/res/shaders/simple.fs.glsl" />
         <option value="$PROJECT_DIR$/work/res/shaders/simple.vs.glsl" />
         <option value="$PROJECT_DIR$/work/src/cgra/mesh.cpp" />
-        <option value="$PROJECT_DIR$/work/src/cgra/mesh.hpp" />
         <option value="$PROJECT_DIR$/work/src/printer.cpp" />
         <option value="$PROJECT_DIR$/work/res/models/test_bone_3.asf" />
         <option value="$PROJECT_DIR$/work/src/skeleton.hpp" />
         <option value="$PROJECT_DIR$/work/src/skeleton.cpp" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/work/src/main.cpp" />
+        <option value="$PROJECT_DIR$/work/src/cgra/mesh.hpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.hpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.cpp" />
       </list>
@@ -247,6 +160,37 @@
               <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
               <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cgra" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -262,15 +206,16 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-2\work\src" />
-      <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-1\work\res" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\daniel\workspace\cgra350\cgra-350-assignment-2\work\res\models" />
       <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-2\work\res\shaders" />
       <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-2\work\src\cgra" />
       <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-1\work\res\shaders" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\daniel\workspace\cgra350\cgra-350-assignment-3\work\res\models" />
+      <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-2\work\src" />
+      <recent name="C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-1\work\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -341,44 +286,35 @@
       <workItem from="1536812692576" duration="333000" />
       <workItem from="1536813634164" duration="996000" />
       <workItem from="1537842800807" duration="11309000" />
+      <workItem from="1537922198720" duration="21654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192702000" />
+    <option name="totallyTimeSpent" value="214920000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.27813852" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32900432" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32900432" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="CMake" order="7" weight="0.27813852" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,27 +329,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="171" column="44" lean-forward="true" selection-start-line="171" selection-start-column="44" selection-end-line="171" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/gtc/constants.inl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -446,13 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -591,13 +499,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work/res/shaders/simple-sphere.fs.glsl" />
-    <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/res/models/test_bone_1.asf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -630,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-918">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/res/models/priman.asf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -654,13 +548,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
+    <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
-          <folding>
-            <element signature="e#1415#1431#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="839">
+          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/6.4.0/include/c++/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="1208" column="6" selection-start-line="1208" selection-start-column="6" selection-end-line="1208" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -671,20 +569,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/vendor/glfw/src/input.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="294" column="12" selection-start-line="294" selection-start-column="12" selection-end-line="294" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        <state relative-caret-position="754">
+          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
           <folding>
             <element signature="e#14#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/models/cube.obj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        <state relative-caret-position="-32">
+          <caret line="397" column="23" lean-forward="true" selection-start-line="397" selection-start-column="23" selection-end-line="397" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -108,7 +108,7 @@ void Skeleton::renderSkeleton(glm::mat4 model_transform,
 //-------------------------------------------------------------
 void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform) {
 
-	Application::draw(Application::m_sphere_mesh, glm::vec3(0.05f), model_transform);
+	Application::draw(Application::m_sphere_mesh_cyan, glm::vec3(0.05f), model_transform);
 
 	glm::mat4 newRot = glm::eulerAngleXYZ(glm::radians(bone->rotation.x), glm::radians(bone->rotation.y), glm::radians(bone->rotation.z));
 	glm::vec3 newDir = (newRot * glm::vec4(bone->boneDir, 1)).xyz();
@@ -135,7 +135,7 @@ void Skeleton::renderBoneCore(bone *bone,
 							  glm::vec3 global_scale,
 							  glm::mat4 global_rotation) {
 
-	Application::draw(Application::m_sphere_mesh, position, glm::vec3(1.2f * 0.1f), glm::mat4(1), global_translation,
+	Application::draw(Application::m_sphere_mesh_cyan, position, glm::vec3(1.2f * 0.1f), glm::mat4(1), global_translation,
 					  global_scale, global_rotation);
 
 	glm::vec3 new_pos = position + bone->boneDir * bone->length * 5.0f;

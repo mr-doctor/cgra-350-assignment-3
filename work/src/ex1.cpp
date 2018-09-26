@@ -28,43 +28,69 @@
 #include <glm/gtx/string_cast.hpp>
 
 cgra::Program Application::m_program;
+glm::mat4 Application::m_model;
 cgra::Mesh Application::m_bone_mesh;
-cgra::Mesh Application::m_sphere_mesh;
+cgra::Mesh Application::m_sphere_mesh_cyan;
+cgra::Mesh Application::m_sphere_mesh_red;
+cgra::Mesh Application::m_sphere_mesh_green;
 cgra::Mesh Application::m_bone_segment_mesh;
 
 void Application::init() {
 
 	set_shaders(CGRA_SRCDIR "/res/shaders/simple.vs.glsl", CGRA_SRCDIR "/res/shaders/simple.fs.glsl");
 
-	glm::mat4 viewMatrix(1);
-	viewMatrix[3] = glm::vec4(0, 0, -10, 1);
-	m_program.setViewMatrix(viewMatrix);
+	m_view = glm::mat4(1);
+	m_view[3] = glm::vec4(0, 0, -10, 1);
+	m_program.setViewMatrix(m_view);
 
 	glm::vec3 rotation(1.0f, 1.0f, 0.0f);
 	m_rotationMatrix = glm::rotate(glm::mat4(1.0f), 0.0f, glm::vec3(rotation[0], rotation[1], rotation[2]));
 
 //	m_bone_mesh = loadObj(CGRA_SRCDIR "/res/models/frustrum-small.obj", 0);
 //	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", 0);
-	m_sphere_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 1.0));
-	m_sphere_mesh_2 = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
+	m_cube_mesh = loadObj(CGRA_SRCDIR "/res/models/cube.obj", glm::vec3(1.0, 0.0, 0.0));
+	m_sphere_mesh_cyan = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 1.0));
+	m_sphere_mesh_yellow = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
+	m_sphere_mesh_red = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 0.0, 0.0));
+	m_sphere_mesh_green = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 0.0));
 
-	keyframes.emplace_back(-7.5, -1, 0);
-	keyframes.emplace_back(-5, 1, 0);
 	keyframes.emplace_back(-2.5, -1, 0);
 	keyframes.emplace_back(0, 1, 0);
 	keyframes.emplace_back(2.5, -1, 0);
 	keyframes.emplace_back(5, 1, 0);
-	keyframes.emplace_back(7.5, -1, 0);
 
-	/*for (int i = 0; i < m_skeleton.m_bones.size(); ++i) {
-		bone b = m_skeleton.m_bones[i];
-		b.rotate = glm::lookAt(glm::vec3(0, 0, -1), b.boneDir, glm::vec3(0, 1, 0));
-		b.rotate[0][0] += 1;
-	}*/
-	for (int i = 0; i < keyframes.size() - 3; i+=1) {
-		show_spline(keyframes[i], keyframes[i+1], keyframes[i+2], keyframes[i+3], 50);
+	speed_curve.emplace_back(-5.2, -3, 0);
+	speed_curve.emplace_back(-5.2, -2, 0);
+	speed_curve.emplace_back(-6.2, -3, 0);
+	speed_curve.emplace_back(-6.2, -2, 0);
+
+	update_spline();
+	update_speed_spline();
+
+}
+
+
+void Application::update_speed_spline() {
+	speed_points.clear();
+	for (int i = 0; i < speed_curve.size() - 3; i+=1) {
+		show_spline(speed_curve[i], speed_curve[i+1], speed_curve[i+2], speed_curve[i+3], 50, &speed_points);
 	}
+}
 
+void Application::update_spline() {
+	new_points.clear();
+	for (int i = 0; i < keyframes.size() - 3; i+=1) {
+		show_spline(keyframes[i], keyframes[i+1], keyframes[i+2], keyframes[i+3], 50, &new_points);
+	}
+}
+
+void Application::update() {
+	float speed_mod = speed;
+	if (point_index + speed >= new_points.size()) {
+		speed_mod = speed - ((point_index + speed) - new_points.size());
+		point_index = 0.0f;
+	}
+	point_index += speed_mod;
 }
 
 cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
@@ -147,7 +173,7 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points) {
+void Application::show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points, std::vector<glm::vec3> * points) {
 	float t0 = 0.0f;
 	float t1 = get_t(t0, p0, p1);
 	float t2 = get_t(t1, p1, p2);
@@ -163,7 +189,7 @@ void Application::show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec
 
 		glm::vec3 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;
 
-		new_points.push_back(C);
+		points->push_back(C);
 	}
 
 }
@@ -223,10 +249,10 @@ void Application::drawScene() {
 	// width / height
 	float aspectRatio = m_viewportSize.x / m_viewportSize.y;
 	// Calculate the projection matrix with a field-of-view of 45 degrees
-	glm::mat4 projectionMatrix = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
+	m_proj = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
 
 	// Set the projection matrix
-	m_program.setProjectionMatrix(projectionMatrix);
+	m_program.setProjectionMatrix(m_proj);
 //	glm::mat4 model_transform = m_rotationMatrix * glm::mat4(1.0f);
 
 	/************************************************************
@@ -238,18 +264,25 @@ void Application::drawScene() {
 	 *    `glm::scale`                                          *
 	 ************************************************************/
 
-	glm::mat4 model_transform(1.0f);
-	model_transform *= m_rotationMatrix;
+	m_model = glm::mat4(1.0f);
+
+//	m_model *= glm::scale(m_model, glm::vec3(m_scale));
 
 	for (unsigned int i = 0; i < new_points.size(); i++) {
-		draw(m_sphere_mesh, new_points[i], glm::vec3(0.02), glm::mat4(1.0), glm::vec3(0), glm::vec3(1), m_rotationMatrix);
+		draw(m_sphere_mesh_cyan, new_points[i], glm::vec3(0.02), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
 	}
 	for (unsigned int i = 0; i < keyframes.size(); i++) {
-		draw(m_sphere_mesh_2, keyframes[i], glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(1), m_rotationMatrix);
+		draw(m_sphere_mesh_yellow, keyframes[i], glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
 	}
 
-//	m_skeleton.renderSkeleton(model_transform, m_translation, glm::vec3(m_scale), m_rotationMatrix, core);
+	for (unsigned int i = 0; i < speed_points.size(); i++) {
+		draw(m_sphere_mesh_green, speed_points[i], glm::vec3(0.01), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0), m_rotationMatrix);
+	}
+	for (unsigned int i = 0; i < speed_curve.size(); i++) {
+		draw(m_sphere_mesh_red, speed_curve[i], glm::vec3(0.025), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0), m_rotationMatrix);
+	}
 
+	draw(m_cube_mesh, new_points[(int) (point_index)], glm::vec3(0.1), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
 }
 
 void Application::draw(cgra::Mesh mesh,
@@ -259,7 +292,7 @@ void Application::draw(cgra::Mesh mesh,
                        glm::vec3 global_translation,
                        glm::vec3 global_scale,
                        glm::mat4 global_rotation) {
-	glm::mat4 model_transform(1.0f);
+	glm::mat4 model_transform = m_model;
 
 	model_transform = glm::translate(model_transform, glm::vec3(0, 0, 0));
 
@@ -271,8 +304,6 @@ void Application::draw(cgra::Mesh mesh,
 	model_transform *= rotate;
 
 	model_transform = glm::translate(model_transform, position);
-
-//	model_transform *= glm::scale(model_transform, glm::vec3(1.0f / global_scale));
 
 	model_transform = glm::scale(model_transform, scale);
 
@@ -318,19 +349,19 @@ void Application::draw(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 model_transfo
 	mesh.draw();
 }
 
-void Application::do_T() {
-	for (size_t i = 0; i < m_skeleton.m_bones.size(); ++i) {
-		m_skeleton.m_bones[i].rotation = glm::vec3(0, 0, 0);
-	}
-}
-
-
-int pose = 0;
-
 void Application::doGUI() {
 	ImGui::SetNextWindowSize(ImVec2(450, 450), ImGuiSetCond_FirstUseEver);
 	ImGui::Begin("Shapes");
 
+	ImGui::SliderFloat("Speed", &speed, 0.0f, 2.5f);
+
+	float coords[3] = {0, 0, 0};
+	ImGui::InputFloat3("New Keyframe Coords", &coords[0]);
+
+	if (ImGui::Button("Add Keyframe")) {
+		keyframes.emplace_back(coords[0], coords[1], coords[2]);
+		update_spline();
+	}
 	ImGui::End();
 }
 
@@ -344,6 +375,43 @@ void Application::onMouseButton(int button, int action, int) {
 	}
 }
 
+glm::vec3 Application::screen_to_world_coord(double mouse_x, double mouse_y) {
+	mouse_y = m_viewportSize.y - mouse_y;
+	glm::vec4 viewport(0, 0, m_viewportSize.x, m_viewportSize.y);
+	// converts screen points to in-world coordinates using glm and the three matrices
+	glm::vec3 worldPos = glm::unProject(glm::vec3(mouse_x, mouse_y, m_depth), m_view * m_model, m_proj, viewport);
+	return worldPos;
+}
+
+void Application::manipulate(glm::vec3 mouse_point) {
+	float threshold = 0.5;
+	if (selected == -1) {
+		select_keyframe = false;
+		for (int i = 0; i < keyframes.size(); ++i) {
+			float dist = glm::distance(keyframes[i], mouse_point);
+			if (dist < threshold) {
+				selected = i;
+				select_keyframe = true;
+				threshold = dist;
+			}
+		}
+//		if (!select_keyframe) {
+//			threshold = 0.5;
+			for (int i = 0; i < speed_curve.size(); ++i) {
+				float dist = glm::distance(speed_curve[i], mouse_point);
+				if (dist < threshold) {
+					selected = i;
+					threshold = dist;
+				}
+			}
+//		}
+	} else if (select_keyframe) {
+		keyframes[selected] = mouse_point;
+	} else {
+		speed_curve[selected] = mouse_point;
+	}
+}
+
 void Application::onCursorPos(double xpos, double ypos) {
 
 	// Make a vec2 with the current mouse position
@@ -353,12 +421,36 @@ void Application::onCursorPos(double xpos, double ypos) {
 //    glm::vec2 mousePositionDelta = currentMousePosition - m_mousePosition;
 
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_LEFT]) {
-		apply_arcball(currentMousePosition);
-	} else if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_MIDDLE]) {
-
-	} else if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_RIGHT]) {
-
+		if (m_depth == -1) {
+			// read the depth to the last pixel on the screen
+			glReadPixels(int(xpos), int(m_viewportSize.y - ypos), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
+		}
+		manipulate(glm::vec3(screen_to_world_coord(xpos, ypos)));
+		left_held = true;
+	} else {
+		m_depth = -1;
+		selected = -1;
 	}
+	if (left_held) {
+		update_spline();
+		update_speed_spline();
+		left_held = false;
+	}
+	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_MIDDLE]) {
+//		apply_arcball(currentMousePosition);
+	}
+	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_RIGHT]) {
+		// TODO - make this work
+		/*if (m_depth == -1) {
+			glReadPixels(int(xpos), int(m_viewportSize.y - ypos), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
+		}
+		glm::vec3 new_point = screen_to_world_coord(xpos, ypos);
+		new_point.z = 0;
+
+		keyframes.push_back(new_point);
+		update_spline();*/
+	}
+
 
 	// Update the mouse position to the current one
 	m_mousePosition = currentMousePosition;
