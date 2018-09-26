@@ -15,12 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79339780-1289-4e5c-8ec2-e953dc705329" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work/src/cgra/mesh.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/cgra/mesh.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work/src/ex1.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work/src/skeleton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/skeleton.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/work/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +31,8 @@
       <file leaf-file-name="ex1.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-32">
-              <caret line="397" column="23" lean-forward="true" selection-start-line="397" selection-start-column="23" selection-end-line="397" selection-end-column="23" />
+            <state relative-caret-position="414">
+              <caret line="398" column="28" selection-start-line="398" selection-start-column="28" selection-end-line="398" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -286,12 +281,12 @@
       <workItem from="1536812692576" duration="333000" />
       <workItem from="1536813634164" duration="996000" />
       <workItem from="1537842800807" duration="11309000" />
-      <workItem from="1537922198720" duration="21654000" />
+      <workItem from="1537922198720" duration="21952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214920000" />
+    <option name="totallyTimeSpent" value="215218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -612,8 +607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="397" column="23" lean-forward="true" selection-start-line="397" selection-start-column="23" selection-end-line="397" selection-end-column="23" />
+        <state relative-caret-position="414">
+          <caret line="398" column="28" selection-start-line="398" selection-start-column="28" selection-end-line="398" selection-end-column="28" />
         </state>
       </provider>
     </entry>

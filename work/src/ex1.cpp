@@ -407,7 +407,7 @@ void Application::manipulate(glm::vec3 mouse_point) {
 //		}
 	} else if (select_keyframe) {
 		keyframes[selected] = mouse_point;
-	} else {
+	} else if (selected != 1 && selected != 2) {
 		speed_curve[selected] = mouse_point;
 	}
 }
