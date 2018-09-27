@@ -90,7 +90,7 @@ public:
 	std::vector<glm::vec3> keyframes;
 	std::vector<glm::vec3> speed_curve;
 
-	void show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points, std::vector<glm::vec3> * points);
+	void show_spline(glm::vec3 P0, glm::vec3 P1, glm::vec3 P2, glm::vec3 P3, float num_points, std::vector<glm::vec3> * points);
 
 	float get_t(float t, glm::vec3 p0, glm::vec3 p1);
 

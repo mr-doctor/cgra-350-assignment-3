@@ -23,6 +23,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtx/euler_angles.hpp"
 #include "glm/gtx/vector_angle.hpp"
+#include "glm/gtx/spline.hpp"
 #include "skeleton.hpp"
 #include "printer.h"
 #include <glm/gtx/string_cast.hpp>
@@ -72,15 +73,15 @@ void Application::init() {
 
 void Application::update_speed_spline() {
 	speed_points.clear();
-	for (int i = 0; i < speed_curve.size() - 3; i+=1) {
-		show_spline(speed_curve[i], speed_curve[i+1], speed_curve[i+2], speed_curve[i+3], 50, &speed_points);
+	for (int i = 0; i < speed_curve.size() - 3; i += 1) {
+		show_spline(speed_curve[i], speed_curve[i + 1], speed_curve[i + 2], speed_curve[i + 3], 50, &speed_points);
 	}
 }
 
 void Application::update_spline() {
 	new_points.clear();
-	for (int i = 0; i < keyframes.size() - 3; i+=1) {
-		show_spline(keyframes[i], keyframes[i+1], keyframes[i+2], keyframes[i+3], 50, &new_points);
+	for (int i = 0; i < keyframes.size() - 3; i += 1) {
+		show_spline(keyframes[i], keyframes[i + 1], keyframes[i + 2], keyframes[i + 3], 50, &new_points);
 	}
 }
 
@@ -173,21 +174,53 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(glm::vec3 p0, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, float num_points, std::vector<glm::vec3> * points) {
+void Application::show_spline(glm::vec3 P0, glm::vec3 P1, glm::vec3 P2, glm::vec3 P3, float num_points,
+                              std::vector<glm::vec3> *points) {
 	float t0 = 0.0f;
-	float t1 = get_t(t0, p0, p1);
-	float t2 = get_t(t1, p1, p2);
-	float t3 = get_t(t2, p2, p3);
+	float t1 = get_t(t0, P0, P1);
+	float t2 = get_t(t1, P1, P2);
+	float t3 = get_t(t2, P2, P3);
+
+	printer::print(t1);
 
 	for (float t = t1; t < t2; t += ((t2 - t1) / num_points)) {
-		glm::vec3 A1 = (t1 - t) / (t1 - t0) * p0 + (t - t0) / (t1 - t0) * p1;
-		glm::vec3 A2 = (t2 - t) / (t2 - t1) * p1 + (t - t1) / (t2 - t1) * p2;
-		glm::vec3 A3 = (t3 - t) / (t3 - t2) * p2 + (t - t2) / (t3 - t2) * p3;
+		/*glm::vec3 A1 = (t1 - t) / (t1 - t0) * P0 + (t - t0) / (t1 - t0) * P1;
+		glm::vec3 A2 = (t2 - t) / (t2 - t1) * P1 + (t - t1) / (t2 - t1) * P2;
+		glm::vec3 A3 = (t3 - t) / (t3 - t2) * P2 + (t - t2) / (t3 - t2) * P3;
 
 		glm::vec3 B1 = (t2 - t) / (t2 - t0) * A1 + (t - t0) / (t2 - t0) * A2;
-		glm::vec3 B2 = (t3 - t) / (t3 - t1) * A2 + (t - t1) / (t3 - t1) * A3;
+		glm::vec3 B2 = (t3 - t) / (t3 - t1) * A2 + (t - t1) / (t3 - t1) * A3;*/
+		/*glm::vec3 A1 = (t1 - t)/(t1 - t0) * P0 + (t - t0)/(t1 - t0) * P1;
+		glm::vec3 A2 = (t2 - t)/(t2 - t1) * P1 + (t - t1)/(t2 - t1) * P2;
+		glm::vec3 A3 = (t3 - t)/(t3 - t2) * P2 + (t - t2)/(t3 - t2) * P3;
 
-		glm::vec3 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;
+		glm::vec3 B1 = (t2 - t)/(t2 - t0) * A1 + (t - t0)/(t2 - t0) * A2;
+		glm::vec3 B2 = (t3 - t)/(t3 - t1) * A2 + (t - t1)/(t3 - t1) * A3;
+
+		glm::vec3 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;*/
+
+		/*glm::vec3 A1prime = (P1 - P0) / (t1 - t0);
+		glm::vec3 A2prime = (P2 - P1) / (t2 - t1);
+		glm::vec3 A3prime = (P3 - P2) / (t3 - t2);
+
+		glm::vec3 B1prime =
+				((A2 - A1) / (t2 - t0)) + ((t2 - t) / (t2 - t0)) * A1prime + ((t - t0) / (t2 - t0)) * A2prime;
+		glm::vec3 B2prime =
+				((A3 - A2) / (t3 - t1)) + ((t3 - t) / (t3 - t0)) * A2prime + ((t - t1) / (t3 - t1)) * A3prime;
+
+		glm::vec3 Cprime =
+				(B2 - B1) / (t2 - t1) + ((t2 - t) / (t2 - t1)) * B1prime + ((t - t1) / (t2 - t1)) * B2prime;*/
+
+		/*glm::vec3 A1p = (P1 - P0)/(t1 - t0);
+		glm::vec3 A2p = (P2 - P1)/(t2 - t1);
+		glm::vec3 A3p = (P3 - P2)/(t3 - t2);
+
+		glm::vec3 B1p = (A2 - A1) / (t2 - t0) + (t2 - t)/(t2 - t0) / A1p + (t - t0)/(t2 - t0) / A2p;
+		glm::vec3 B2p = (A3 - A2) / (t3 - t1) + (t3 - t)/(t3 - t1) / A2p + (t - t1)/(t3 - t1) / A3p;
+
+		glm::vec3 Cprime = (B2 - B1) / (t2 - t1) + (t2 - t)/(t2 - t1) / B1p + (t - t1)/(t2 - t1) / B2p;*/
+
+		glm::vec3 C = glm::catmullRom(P0, P1, P2, P3, t);
 
 		points->push_back(C);
 	}
@@ -268,21 +301,25 @@ void Application::drawScene() {
 
 //	m_model *= glm::scale(m_model, glm::vec3(m_scale));
 
-	for (unsigned int i = 0; i < new_points.size(); i++) {
-		draw(m_sphere_mesh_cyan, new_points[i], glm::vec3(0.02), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
+	for (auto new_point : new_points) {
+		draw(m_sphere_mesh_cyan, new_point, glm::vec3(0.02), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale),
+		     m_rotationMatrix);
 	}
-	for (unsigned int i = 0; i < keyframes.size(); i++) {
-		draw(m_sphere_mesh_yellow, keyframes[i], glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
-	}
-
-	for (unsigned int i = 0; i < speed_points.size(); i++) {
-		draw(m_sphere_mesh_green, speed_points[i], glm::vec3(0.01), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0), m_rotationMatrix);
-	}
-	for (unsigned int i = 0; i < speed_curve.size(); i++) {
-		draw(m_sphere_mesh_red, speed_curve[i], glm::vec3(0.025), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0), m_rotationMatrix);
+	for (auto keyframe : keyframes) {
+		draw(m_sphere_mesh_yellow, keyframe, glm::vec3(0.05), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale),
+		     m_rotationMatrix);
 	}
 
-	draw(m_cube_mesh, new_points[(int) (point_index)], glm::vec3(0.1), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale), m_rotationMatrix);
+	for (auto speed_point : speed_points) {
+		draw(m_sphere_mesh_green, speed_point, glm::vec3(0.01), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0),
+		     glm::mat4(1.0f));
+	}
+	for (auto i : speed_curve) {
+		draw(m_sphere_mesh_red, i, glm::vec3(0.025), glm::mat4(1.0), glm::vec3(0), glm::vec3(1.0), glm::mat4(1.0f));
+	}
+
+	draw(m_cube_mesh, new_points[(int) (point_index)], glm::vec3(0.1), glm::mat4(1.0), glm::vec3(0), glm::vec3(m_scale),
+	     m_rotationMatrix);
 }
 
 void Application::draw(cgra::Mesh mesh,
@@ -364,7 +401,7 @@ void Application::doGUI() {
 	}
 	ImGui::End();
 }
- 
+
 
 // Input Handlers
 
@@ -397,13 +434,13 @@ void Application::manipulate(glm::vec3 mouse_point) {
 		}
 //		if (!select_keyframe) {
 //			threshold = 0.5;
-			for (int i = 0; i < speed_curve.size(); ++i) {
-				float dist = glm::distance(speed_curve[i], mouse_point);
-				if (dist < threshold) {
-					selected = i;
-					threshold = dist;
-				}
+		for (int i = 0; i < speed_curve.size(); ++i) {
+			float dist = glm::distance(speed_curve[i], mouse_point);
+			if (dist < threshold) {
+				selected = i;
+				threshold = dist;
 			}
+		}
 //		}
 	} else if (select_keyframe) {
 		keyframes[selected] = mouse_point;
@@ -437,7 +474,7 @@ void Application::onCursorPos(double xpos, double ypos) {
 		left_held = false;
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_MIDDLE]) {
-//		apply_arcball(currentMousePosition);
+		apply_arcball(currentMousePosition);
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_RIGHT]) {
 		// TODO - make this work
