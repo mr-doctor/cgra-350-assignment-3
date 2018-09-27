@@ -8,7 +8,7 @@ SET(sources
 
   opengl.hpp
   main.cpp
-        cgra/bone.cpp parser.cpp parser.hpp skeleton.cpp skeleton.hpp printer.cpp printer.h)
+        cgra/bone.cpp parser.cpp parser.hpp skeleton.cpp skeleton.hpp printer.cpp printer.h spline.cpp)
 
 add_executable(${CGRA_PROJECT} ${sources})
 

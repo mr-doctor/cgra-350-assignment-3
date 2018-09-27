@@ -26,6 +26,7 @@
 #include "glm/gtx/spline.hpp"
 #include "skeleton.hpp"
 #include "printer.h"
+#include "spline.hpp"
 #include <glm/gtx/string_cast.hpp>
 
 cgra::Program Application::m_program;
@@ -174,65 +175,14 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(glm::vec3 P0, glm::vec3 P1, glm::vec3 P2, glm::vec3 P3, float num_points,
+void Application::show_spline(glm::vec3 P0, glm::vec3 P1, glm::vec3 P2, glm::vec3 P3, int num_points,
                               std::vector<glm::vec3> *points) {
-	float t0 = 0.0f;
-	float t1 = get_t(t0, P0, P1);
-	float t2 = get_t(t1, P1, P2);
-	float t3 = get_t(t2, P2, P3);
+	Spline s(P0, P1, P2, P3, num_points);
 
-	printer::print(t1);
-
-	for (float t = t1; t < t2; t += ((t2 - t1) / num_points)) {
-		/*glm::vec3 A1 = (t1 - t) / (t1 - t0) * P0 + (t - t0) / (t1 - t0) * P1;
-		glm::vec3 A2 = (t2 - t) / (t2 - t1) * P1 + (t - t1) / (t2 - t1) * P2;
-		glm::vec3 A3 = (t3 - t) / (t3 - t2) * P2 + (t - t2) / (t3 - t2) * P3;
-
-		glm::vec3 B1 = (t2 - t) / (t2 - t0) * A1 + (t - t0) / (t2 - t0) * A2;
-		glm::vec3 B2 = (t3 - t) / (t3 - t1) * A2 + (t - t1) / (t3 - t1) * A3;*/
-		/*glm::vec3 A1 = (t1 - t)/(t1 - t0) * P0 + (t - t0)/(t1 - t0) * P1;
-		glm::vec3 A2 = (t2 - t)/(t2 - t1) * P1 + (t - t1)/(t2 - t1) * P2;
-		glm::vec3 A3 = (t3 - t)/(t3 - t2) * P2 + (t - t2)/(t3 - t2) * P3;
-
-		glm::vec3 B1 = (t2 - t)/(t2 - t0) * A1 + (t - t0)/(t2 - t0) * A2;
-		glm::vec3 B2 = (t3 - t)/(t3 - t1) * A2 + (t - t1)/(t3 - t1) * A3;
-
-		glm::vec3 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;*/
-
-		/*glm::vec3 A1prime = (P1 - P0) / (t1 - t0);
-		glm::vec3 A2prime = (P2 - P1) / (t2 - t1);
-		glm::vec3 A3prime = (P3 - P2) / (t3 - t2);
-
-		glm::vec3 B1prime =
-				((A2 - A1) / (t2 - t0)) + ((t2 - t) / (t2 - t0)) * A1prime + ((t - t0) / (t2 - t0)) * A2prime;
-		glm::vec3 B2prime =
-				((A3 - A2) / (t3 - t1)) + ((t3 - t) / (t3 - t0)) * A2prime + ((t - t1) / (t3 - t1)) * A3prime;
-
-		glm::vec3 Cprime =
-				(B2 - B1) / (t2 - t1) + ((t2 - t) / (t2 - t1)) * B1prime + ((t - t1) / (t2 - t1)) * B2prime;*/
-
-		/*glm::vec3 A1p = (P1 - P0)/(t1 - t0);
-		glm::vec3 A2p = (P2 - P1)/(t2 - t1);
-		glm::vec3 A3p = (P3 - P2)/(t3 - t2);
-
-		glm::vec3 B1p = (A2 - A1) / (t2 - t0) + (t2 - t)/(t2 - t0) / A1p + (t - t0)/(t2 - t0) / A2p;
-		glm::vec3 B2p = (A3 - A2) / (t3 - t1) + (t3 - t)/(t3 - t1) / A2p + (t - t1)/(t3 - t1) / A3p;
-
-		glm::vec3 Cprime = (B2 - B1) / (t2 - t1) + (t2 - t)/(t2 - t1) / B1p + (t - t1)/(t2 - t1) / B2p;*/
-
-		glm::vec3 C = glm::catmullRom(P0, P1, P2, P3, t);
-
-		points->push_back(C);
+	for (float t = 0; t < 1; t += 1.0f / ((float) num_points)) {
+		points->push_back(s.map(t));
 	}
 
-}
-
-float Application::get_t(float t, glm::vec3 p0, glm::vec3 p1) {
-	float a = glm::pow((p1.x - p0.x), 2.0f) + glm::pow((p1.y - p0.y), 2.0f);
-	float b = glm::pow(a, 0.5f);
-	float c = glm::pow(b, 0.5f);
-
-	return (c + t);
 }
 
 void Application::set_shaders(const char *vertex, const char *fragment) {
