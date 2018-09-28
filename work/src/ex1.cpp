@@ -78,7 +78,7 @@ void Application::update_speed_spline() {
 
 void Application::update_spline() {
 	new_points.clear();
-	show_spline(keyframes, 100, &new_points);
+	show_spline(keyframes, catmull_divisions, &new_points);
 }
 
 void Application::update() {
@@ -341,6 +341,7 @@ void Application::doGUI() {
 
 	if (ImGui::Button("Add Keyframe")) {
 		keyframes.emplace_back(coords[0], coords[1], coords[2]);
+		catmull_divisions += 50;
 		update_spline();
 	}
 	ImGui::End();

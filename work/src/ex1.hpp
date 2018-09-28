@@ -119,4 +119,6 @@ public:
 	void update_speed_spline();
 
 	bool select_keyframe = false;
+	int divisions_per_keyframe = 50;
+	int catmull_divisions = divisions_per_keyframe;
 };
