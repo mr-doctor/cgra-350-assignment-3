@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work
+# Install script for directory: /cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/CGRA_PROJECT_a1")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "DEBUG")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glew/cmake_install.cmake")
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/cmake_install.cmake")
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glm/cmake_install.cmake")
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/imgui/cmake_install.cmake")
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/cmake_install.cmake")
-  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/res/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glew/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glm/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/imgui/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/cmake_install.cmake")
+  include("/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/res/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

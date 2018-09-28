@@ -2,7 +2,6 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
-#include <zconf.h>
 #include <cgra/bone.hpp>
 #include <fstream>
 #include <sstream>
@@ -65,24 +64,24 @@ void Application::init() {
 	speed_curve.emplace_back(-6.2, -3, 0);
 	speed_curve.emplace_back(-6.2, -2, 0);
 
-	update_spline();
 	update_speed_spline();
+	update_spline();
 
 }
 
 
 void Application::update_speed_spline() {
 	speed_points.clear();
-	show_spline(speed_curve, 50, &speed_points);
+	show_spline(speed_curve, catmull_divisions, &speed_points, false);
 }
 
 void Application::update_spline() {
 	new_points.clear();
-	show_spline(keyframes, catmull_divisions, &new_points);
+	show_spline(keyframes, catmull_divisions, &new_points, true);
 }
 
-void Application::update() {
-	float speed_mod = speed;
+void Application::update_position() {
+	float speed_mod = speed  * ((speed_points[point_index].x + 6.2f) / (speed_points[point_index].y + 3.0f));
 	if (point_index + speed >= new_points.size()) {
 		speed_mod = speed - ((point_index + speed) - new_points.size());
 		point_index = 0.0f;
@@ -170,10 +169,14 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> *points) {
-	Spline s(controls, num_points);
+void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> *points, bool main_spline) {
+
+	Spline s(controls, num_points, main_spline, speed_points);
 
 	for (float t = 0; t < 1; t += 1.0f / ((float) num_points)) {
+		/*if (main_spline) {
+			printer::print(s.map(t));
+		}*/
 		points->push_back(s.map(t));
 	}
 
@@ -341,7 +344,7 @@ void Application::doGUI() {
 
 	if (ImGui::Button("Add Keyframe")) {
 		keyframes.emplace_back(coords[0], coords[1], coords[2]);
-		catmull_divisions += 50;
+//		catmull_divisions += 50;
 		update_spline();
 	}
 	ImGui::End();
@@ -396,7 +399,7 @@ void Application::manipulate(glm::vec3 mouse_point) {
 	} else {
 
 		if (selected == 1 || selected == 2) {
-			speed_curve[selected].y = clip(mouse_point.y, -3, -2);
+//			speed_curve[selected].y = clip(mouse_point.y, -3, -2);
 		} else {
 			speed_curve[selected] = mouse_point;
 		}

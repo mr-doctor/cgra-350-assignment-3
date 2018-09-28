@@ -90,12 +90,12 @@ public:
 	std::vector<glm::vec3> keyframes;
 	std::vector<glm::vec3> speed_curve;
 
-	void show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> * points);
+	void show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> * points, bool main_spline);
 
 	std::vector<glm::vec3> new_points;
 	std::vector<glm::vec3> speed_points;
 
-	void update();
+	void update_position();
 
 	float point_index = 0;
 	float speed = 1.0;
@@ -119,6 +119,5 @@ public:
 	void update_speed_spline();
 
 	bool select_keyframe = false;
-	int divisions_per_keyframe = 50;
-	int catmull_divisions = divisions_per_keyframe;
+	int catmull_divisions = 100;
 };

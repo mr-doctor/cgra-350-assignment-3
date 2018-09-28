@@ -4,23 +4,23 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/bone.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/bone.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/imgui_impl_glfw_gl3.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/imgui_impl_glfw_gl3.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/mesh.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/mesh.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/shader.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/shader.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/wavefront.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/wavefront.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/ex1.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/ex1.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/main.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/main.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/parser.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/parser.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/printer.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/printer.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/skeleton.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/skeleton.cpp.obj"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src/spline.cpp" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/spline.cpp.obj"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/bone.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/bone.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/imgui_impl_glfw_gl3.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/imgui_impl_glfw_gl3.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/mesh.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/mesh.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/shader.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/shader.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/cgra/wavefront.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/cgra/wavefront.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/ex1.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/ex1.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/main.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/main.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/parser.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/parser.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/printer.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/printer.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/skeleton.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/skeleton.cpp.o"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/src/spline.cpp" "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/CMakeFiles/a1.dir/spline.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "CGRA_SRCDIR=\"C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work\""
+  "CGRA_SRCDIR=\"/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work\""
   "GLEW_STATIC"
   )
 
@@ -35,9 +35,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glew/CMakeFiles/glew.dir/DependInfo.cmake"
-  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/imgui/CMakeFiles/imgui.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glew/CMakeFiles/glew.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/imgui/CMakeFiles/imgui.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

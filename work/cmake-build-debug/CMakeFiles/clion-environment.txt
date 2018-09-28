@@ -1,4 +1,4 @@
-ToolSet: w64 6.0@C:\Program Files (x86)\mingw-w64\i686-7.3.0-posix-dwarf-rt_v5-rev0\mingw32
+ToolSet: 2.10.0@C:\cygwin64
 Options: 
 
 Options:

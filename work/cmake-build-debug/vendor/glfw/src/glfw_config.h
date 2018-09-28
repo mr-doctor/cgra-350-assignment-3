@@ -35,9 +35,9 @@
 //========================================================================
 
 // Define this to 1 if building GLFW for X11
-/* #undef _GLFW_X11 */
+#define _GLFW_X11
 // Define this to 1 if building GLFW for Win32
-#define _GLFW_WIN32
+/* #undef _GLFW_WIN32 */
 // Define this to 1 if building GLFW for Cocoa
 /* #undef _GLFW_COCOA */
 // Define this to 1 if building GLFW for Wayland
@@ -48,9 +48,9 @@
 // Define this to 1 if building GLFW for EGL
 /* #undef _GLFW_EGL */
 // Define this to 1 if building GLFW for GLX
-/* #undef _GLFW_GLX */
+#define _GLFW_GLX
 // Define this to 1 if building GLFW for WGL
-#define _GLFW_WGL
+/* #undef _GLFW_WGL */
 // Define this to 1 if building GLFW for NSGL
 /* #undef _GLFW_NSGL */
 
@@ -73,7 +73,7 @@
 // Define this to 1 if glXGetProcAddressEXT is available
 /* #undef _GLFW_HAS_GLXGETPROCADDRESSEXT */
 // Define this to 1 if dlopen is available
-/* #undef _GLFW_HAS_DLOPEN */
+#define _GLFW_HAS_DLOPEN
 
 // Define this to 1 if glfwInit should change the current directory
 /* #undef _GLFW_USE_CHDIR */

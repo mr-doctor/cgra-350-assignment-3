@@ -18,7 +18,7 @@ public:
 	float length;
 	std::vector<glm::vec3> control_points;
 
-	Spline(std::vector<glm::vec3> controls, int num_points) {
+	Spline(std::vector<glm::vec3> controls, int num_points, bool main_spline, std::vector<glm::vec3> speed) {
 
 		control_points = std::move(controls);
 
@@ -31,7 +31,6 @@ public:
 		for (int i = 1; i <= num_points; i++) {
 			glm::vec3 cur_point = catmull(((float)i)  / ((float)num_points));
 			cur_point.z = 0;
-			glm::vec3 d_point(o_point - cur_point);
 
 			net_len += glm::distance(o_point, cur_point);
 

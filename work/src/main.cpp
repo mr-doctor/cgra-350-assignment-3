@@ -151,7 +151,7 @@ int main(int argc, const char **argv) {
 				// Note: this does not draw the GUI
 				app.doGUI();
 
-				app.update();
+				app.update_position();
 				// Draw the scene.
 				app.drawScene();
 

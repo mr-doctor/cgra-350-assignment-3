@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/glew.dir/src/glew.c.obj"
+  "CMakeFiles/glew.dir/src/glew.c.o"
   "../../bin/libglew.pdb"
   "../../bin/libglew.a"
 )
