@@ -1,57 +1,22 @@
-Determining if the function glXGetProcAddress exists failed with the following output:
-Change Dir: /cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_78ec5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_78ec5.dir/build.make CMakeFiles/cmTC_78ec5.dir/build
-make[1]: Entering directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_78ec5.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddress   -o CMakeFiles/cmTC_78ec5.dir/CheckFunctionExists.c.o   -c /cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.2/Modules/CheckFunctionExists.c
-Linking C executable cmTC_78ec5.exe
-/cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_78ec5.dir/link.txt --verbose=1
-/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddress  -Wl,--enable-auto-import  CMakeFiles/cmTC_78ec5.dir/CheckFunctionExists.c.o  -o cmTC_78ec5.exe -Wl,--out-implib,libcmTC_78ec5.dll.a -Wl,--major-image-version,0,--minor-image-version,0 /cygdrive/c/MinGW/lib/libopengl32.a 
-CMakeFiles/cmTC_78ec5.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): undefined reference to `glXGetProcAddress'
-CMakeFiles/cmTC_78ec5.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `glXGetProcAddress'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_78ec5.dir/build.make:99: cmTC_78ec5.exe] Error 1
-make[1]: Leaving directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-make: *** [Makefile:126: cmTC_78ec5/fast] Error 2
+Run Build Command:"C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe" "cmTC_1eeb2/fast"
+C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f CMakeFiles\cmTC_1eeb2.dir\build.make CMakeFiles/cmTC_1eeb2.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1eeb2.dir/src.c.obj
+C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe   -w -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va   -o CMakeFiles\cmTC_1eeb2.dir\src.c.obj   -c C:\Users\Daniel\workspace\cgra350\cgra-350-assignment-3\work\cmake-build-debug\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_1eeb2.exe
+"C:\Program Files\JetBrains\CLion 2018.1\bin\cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1eeb2.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2018.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1eeb2.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\cmTC_1eeb2.dir/objects.a @CMakeFiles\cmTC_1eeb2.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-7~1.0-P\mingw32\bin\gcc.exe  -w -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va    -Wl,--whole-archive CMakeFiles\cmTC_1eeb2.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1eeb2.exe -Wl,--out-implib,libcmTC_1eeb2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1eeb2.dir\linklibs.rsp
+C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: unrecognized option '--high-entropy-va'
+C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: use the --help option for usage information
+collect2.exe: error: ld returned 1 exit status
+mingw32-make.exe[1]: *** [CMakeFiles\cmTC_1eeb2.dir\build.make:99: cmTC_1eeb2.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
+mingw32-make.exe: *** [Makefile:125: cmTC_1eeb2/fast] Error 2
 
-
-Determining if the function glXGetProcAddressARB exists failed with the following output:
-Change Dir: /cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make.exe" "cmTC_e218a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e218a.dir/build.make CMakeFiles/cmTC_e218a.dir/build
-make[1]: Entering directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e218a.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddressARB   -o CMakeFiles/cmTC_e218a.dir/CheckFunctionExists.c.o   -c /cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.2/Modules/CheckFunctionExists.c
-Linking C executable cmTC_e218a.exe
-/cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_e218a.dir/link.txt --verbose=1
-/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddressARB  -Wl,--enable-auto-import  CMakeFiles/cmTC_e218a.dir/CheckFunctionExists.c.o  -o cmTC_e218a.exe -Wl,--out-implib,libcmTC_e218a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 /cygdrive/c/MinGW/lib/libopengl32.a 
-CMakeFiles/cmTC_e218a.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): undefined reference to `glXGetProcAddressARB'
-CMakeFiles/cmTC_e218a.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `glXGetProcAddressARB'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_e218a.dir/build.make:99: cmTC_e218a.exe] Error 1
-make[1]: Leaving directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-make: *** [Makefile:126: cmTC_e218a/fast] Error 2
-
-
-Determining if the function glXGetProcAddressEXT exists failed with the following output:
-Change Dir: /cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command:"/usr/bin/make.exe" "cmTC_027c8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_027c8.dir/build.make CMakeFiles/cmTC_027c8.dir/build
-make[1]: Entering directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_027c8.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT   -o CMakeFiles/cmTC_027c8.dir/CheckFunctionExists.c.o   -c /cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.2/Modules/CheckFunctionExists.c
-Linking C executable cmTC_027c8.exe
-/cygdrive/c/Users/Daniel/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_027c8.dir/link.txt --verbose=1
-/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=glXGetProcAddressEXT  -Wl,--enable-auto-import  CMakeFiles/cmTC_027c8.dir/CheckFunctionExists.c.o  -o cmTC_027c8.exe -Wl,--out-implib,libcmTC_027c8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 /cygdrive/c/MinGW/lib/libopengl32.a 
-CMakeFiles/cmTC_027c8.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): undefined reference to `glXGetProcAddressEXT'
-CMakeFiles/cmTC_027c8.dir/CheckFunctionExists.c.o:CheckFunctionExists.c:(.text+0x15): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `glXGetProcAddressEXT'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_027c8.dir/build.make:99: cmTC_027c8.exe] Error 1
-make[1]: Leaving directory '/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/CMakeFiles/CMakeTmp'
-make: *** [Makefile:126: cmTC_027c8/fast] Error 2
-
-
+Source file was:
+int main(void) { return 0; }

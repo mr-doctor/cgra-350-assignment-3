@@ -4,24 +4,25 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/context.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/context.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/glx_context.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/init.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/init.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/input.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/input.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/linux_joystick.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/monitor.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/posix_time.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/posix_tls.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/posix_tls.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/window.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/window.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/x11_init.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/x11_monitor.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/x11_window.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o"
-  "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/xkb_unicode.c" "/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/context.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/init.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/input.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/monitor.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/wgl_context.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/win32_init.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/win32_monitor.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/win32_time.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/win32_tls.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/win32_tls.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/win32_window.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/window.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
+  "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/vendor/glfw/src/winmm_joystick.c" "C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/vendor/glfw/src/CMakeFiles/glfw.dir/winmm_joystick.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
+  "UNICODE"
+  "WINVER=0x0501"
   "_GLFW_USE_CONFIG_H"
   )
 

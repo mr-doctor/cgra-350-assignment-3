@@ -1,8 +1,8 @@
-# Install script for directory: /cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src
+# Install script for directory: C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/CGRA_PROJECT_a1")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/cygdrive/c/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/cgra/cmake_install.cmake")
+  include("C:/Users/Daniel/workspace/cgra350/cgra-350-assignment-3/work/cmake-build-debug/src/cgra/cmake_install.cmake")
 
 endif()
 

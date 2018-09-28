@@ -38,7 +38,6 @@ cgra::Mesh Application::m_sphere_mesh_green;
 cgra::Mesh Application::m_bone_segment_mesh;
 
 void Application::init() {
-
 	set_shaders(CGRA_SRCDIR "/res/shaders/simple.vs.glsl", CGRA_SRCDIR "/res/shaders/simple.fs.glsl");
 
 	m_view = glm::mat4(1);
@@ -74,16 +73,12 @@ void Application::init() {
 
 void Application::update_speed_spline() {
 	speed_points.clear();
-	for (int i = 0; i < speed_curve.size() - 3; i += 1) {
-		show_spline(speed_curve[i], speed_curve[i + 1], speed_curve[i + 2], speed_curve[i + 3], 50, &speed_points);
-	}
+	show_spline(speed_curve, 50, &speed_points);
 }
 
 void Application::update_spline() {
 	new_points.clear();
-	for (int i = 0; i < keyframes.size() - 3; i += 1) {
-		show_spline(keyframes[i], keyframes[i + 1], keyframes[i + 2], keyframes[i + 3], 50, &new_points);
-	}
+	show_spline(keyframes, 100, &new_points);
 }
 
 void Application::update() {
@@ -175,9 +170,8 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(glm::vec3 P0, glm::vec3 P1, glm::vec3 P2, glm::vec3 P3, int num_points,
-                              std::vector<glm::vec3> *points) {
-	Spline s(P0, P1, P2, P3, num_points);
+void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> *points) {
+	Spline s(controls, num_points);
 
 	for (float t = 0; t < 1; t += 1.0f / ((float) num_points)) {
 		points->push_back(s.map(t));
@@ -370,6 +364,10 @@ glm::vec3 Application::screen_to_world_coord(double mouse_x, double mouse_y) {
 	return worldPos;
 }
 
+float clip(float n, float lower, float upper) {
+	return std::max(lower, std::min(n, upper));
+}
+
 void Application::manipulate(glm::vec3 mouse_point) {
 	float threshold = 0.5;
 	if (selected == -1) {
@@ -394,8 +392,13 @@ void Application::manipulate(glm::vec3 mouse_point) {
 //		}
 	} else if (select_keyframe) {
 		keyframes[selected] = mouse_point;
-	} else if (selected != 1 && selected != 2) {
-		speed_curve[selected] = mouse_point;
+	} else {
+
+		if (selected == 1 || selected == 2) {
+			speed_curve[selected].y = clip(mouse_point.y, -3, -2);
+		} else {
+			speed_curve[selected] = mouse_point;
+		}
 	}
 }
 
