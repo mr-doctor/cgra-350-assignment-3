@@ -80,8 +80,13 @@ void Application::update_spline() {
 	show_spline(keyframes, catmull_divisions, &new_points, true);
 }
 
+float clip(float n, float lower, float upper) {
+	return std::max(lower, std::min(n, upper));
+}
+
 void Application::update_position() {
 	float speed_mod = speed  * ((speed_points[point_index].x + 6.2f) / (speed_points[point_index].y + 3.0f));
+	//(clip(speed_points[point_index].x + 6.2f, 0.0001f, 1.0f) / clip(speed_points[point_index].y + 3.0f, 0.0001f, 1.0f));
 	if (point_index + speed >= new_points.size()) {
 		speed_mod = speed - ((point_index + speed) - new_points.size());
 		point_index = 0.0f;
@@ -366,10 +371,6 @@ glm::vec3 Application::screen_to_world_coord(double mouse_x, double mouse_y) {
 	// converts screen points to in-world coordinates using glm and the three matrices
 	glm::vec3 worldPos = glm::unProject(glm::vec3(mouse_x, mouse_y, m_depth), m_view * m_model, m_proj, viewport);
 	return worldPos;
-}
-
-float clip(float n, float lower, float upper) {
-	return std::max(lower, std::min(n, upper));
 }
 
 void Application::manipulate(glm::vec3 mouse_point) {
