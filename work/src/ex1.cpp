@@ -87,11 +87,10 @@ void Application::update() {
 	}
 	if (play) {
 		keyframe_index += speed_mod;
-
 		for (auto &bone : m_skeleton.m_bones) {
 			float idx = 0;
 
-			float t = std::modf(keyframe_index / num_keyframes, &idx);
+			float t = std::modf(keyframe_index, &idx);
 
 			int i = int(idx);
 
@@ -403,6 +402,7 @@ void Application::doGUI() {
 		play = false;
 	}
 	if (ImGui::Button("STOP")) {
+		play = false;
 		for (auto &bone : m_skeleton.m_bones) {
 			bone.rotation = glm::vec3(0);
 		}

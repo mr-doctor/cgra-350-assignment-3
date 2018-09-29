@@ -1,0 +1,6 @@
+0pos1
+0pos2
+0pos3
+1pos0
+2pos0
+3pos0
