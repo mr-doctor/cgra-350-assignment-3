@@ -15,7 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79339780-1289-4e5c-8ec2-e953dc705329" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/ex1.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/work/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,13 +37,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="248" />
-          <entry key="hpp" value="240" />
+          <entry key="cpp" value="837" />
+          <entry key="hpp" value="242" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="488" />
+          <entry key="ObjectiveC" value="1079" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -65,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+            <state relative-caret-position="596">
+              <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -86,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="97" column="24" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
+            <state relative-caret-position="226">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
                 <element signature="e#14#38#0" expanded="true" />
               </folding>
@@ -123,8 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>spline</find>
-      <find>Vector2</find>
       <find>core</find>
       <find>scene</find>
       <find>rotation</find>
@@ -153,6 +153,8 @@
       <find>update</find>
       <find>add</find>
       <find>clip</find>
+      <find>[i]</find>
+      <find>.x</find>
     </findStrings>
     <replaceStrings>
       <replace>0.5 : -0.5</replace>
@@ -171,6 +173,8 @@
       <replace>/</replace>
       <replace>len</replace>
       <replace>arc_len</replace>
+      <replace>.x</replace>
+      <replace>.y</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -210,8 +214,8 @@
         <option value="$PROJECT_DIR$/work/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/work/src/spline.cpp" />
         <option value="$PROJECT_DIR$/work/src/spline.hpp" />
-        <option value="$PROJECT_DIR$/work/src/ex1.hpp" />
         <option value="$PROJECT_DIR$/work/src/main.cpp" />
+        <option value="$PROJECT_DIR$/work/src/ex1.hpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.cpp" />
       </list>
     </option>
@@ -390,12 +394,12 @@
       <workItem from="1537922198720" duration="21952000" />
       <workItem from="1538001431741" duration="11021000" />
       <workItem from="1538029748021" duration="11964000" />
-      <workItem from="1538125689036" duration="10051000" />
+      <workItem from="1538125689036" duration="15957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249253000" />
+    <option name="totallyTimeSpent" value="255159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -643,16 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="97" column="24" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
-          <folding>
-            <element signature="e#14#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -660,10 +654,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+          <folding>
+            <element signature="e#14#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+        <state relative-caret-position="596">
+          <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

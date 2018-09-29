@@ -72,23 +72,26 @@ void Application::init() {
 
 void Application::update_speed_spline() {
 	speed_points.clear();
-	show_spline(speed_curve, catmull_divisions, &speed_points, false);
+	show_spline(speed_curve, catmull_divisions, speed_points, false);
 }
 
 void Application::update_spline() {
 	new_points.clear();
-	show_spline(keyframes, catmull_divisions, &new_points, true);
+	show_spline(keyframes, catmull_divisions, new_points, true);
 }
 
 float clip(float n, float lower, float upper) {
+	return std::min(lower, std::max(n, upper));
+}
+
+float clip2(float n, float lower, float upper) {
 	return std::max(lower, std::min(n, upper));
 }
 
 void Application::update_position() {
-	float speed_mod = speed  * ((speed_points[point_index].x + 6.2f) / (speed_points[point_index].y + 3.0f));
-	//(clip(speed_points[point_index].x + 6.2f, 0.0001f, 1.0f) / clip(speed_points[point_index].y + 3.0f, 0.0001f, 1.0f));
+	float speed_mod = speed  * ((speed_points[((int) point_index)].x + 6.2f) / (speed_points[((int) point_index)].y + 3.0f));
 	if (point_index + speed >= new_points.size()) {
-		speed_mod = speed - ((point_index + speed) - new_points.size());
+		speed_mod = 0.0f;//speed - ((point_index + speed) - new_points.size());
 		point_index = 0.0f;
 	}
 	point_index += speed_mod;
@@ -174,15 +177,35 @@ cgra::Mesh Application::loadObj(const char *filename, glm::vec3 colour) {
 	return new_mesh;
 }
 
-void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> *points, bool main_spline) {
+void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> &points, bool main_spline) {
 
 	Spline s(controls, num_points, main_spline, speed_points);
 
 	for (float t = 0; t < 1; t += 1.0f / ((float) num_points)) {
-		/*if (main_spline) {
-			printer::print(s.map(t));
-		}*/
-		points->push_back(s.map(t));
+		glm::vec3 pt = s.map(t);
+
+		if (!main_spline) {
+//			printer::print(pt);
+			/*pt.x = clip(pt.x, -5.3f, -6.1f);
+			pt.y = clip(pt.y, -2.1f, -2.9f);*/
+			pt.x = std::max(pt.x, -6.2f);
+			pt.y = std::max(pt.y, -3.0f);
+
+			glm::vec3 prev = (points.empty()) ? controls[1] : points[points.size() - 1];
+//			printer::print(pt);
+			if (pt.x > prev.x) {
+//				printer::print(std::to_string(pt.x) + " is greater than " + std::to_string(prev.x));
+				pt.x = prev.x;
+			}
+			if (pt.y > prev.y) {
+				pt.y = prev.y;
+			}
+//			printer::print(pt);
+//			printer::print("");
+
+		}
+
+		points.push_back(pt);
 	}
 
 }
