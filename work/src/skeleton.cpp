@@ -90,7 +90,7 @@ void Skeleton::renderSkeleton(glm::mat4 model_transform,
 	if (core) {
 		renderBoneCore(&m_bones[0], glm::vec3(0), glm::mat4(1), global_translation, global_scale, global_rotation);
 	} else {
-		renderBoneCompletion(&m_bones[0], model_transform);
+		renderBoneCompletion(&m_bones[0], model_transform, glm::vec3(0));
 	}
 }
 
@@ -106,15 +106,18 @@ void Skeleton::renderSkeleton(glm::mat4 model_transform,
 // Should not draw the root bone (because it has zero length)
 // but should go on to draw its children
 //-------------------------------------------------------------
-void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform) {
+void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::vec3 parent_rotation) {
 
 	Application::draw(Application::m_sphere_mesh_cyan, glm::vec3(0.05f), model_transform);
 
-	glm::mat4 newRot = glm::eulerAngleXYZ(glm::radians(bone->rotation.x), glm::radians(bone->rotation.y), glm::radians(bone->rotation.z));
+	glm::mat4 newRot = glm::eulerAngleXYZ(bone->rotation.x + parent_rotation.x,
+										  bone->rotation.y + parent_rotation.y,
+										  bone->rotation.z + parent_rotation.z);
 	glm::vec3 newDir = (newRot * glm::vec4(bone->boneDir, 1)).xyz();
 	if (bone->name != "root") {
-		for (float f=0; f < 1.0f; f += 0.1){
-			Application::draw(Application::m_bone_segment_mesh, glm::vec3(0.02), glm::translate(model_transform, newDir * bone->length * f));
+		for (float f = 0; f < 1.0f; f += 0.1) {
+			Application::draw(Application::m_bone_segment_mesh, glm::vec3(0.02),
+							  glm::translate(model_transform, newDir * bone->length * f));
 		}
 		/*glm::quat rotate = glm::rotation(glm::vec3(0, 0, 1), newDir);
 		glm::mat4 drawT = model_transform;
@@ -124,7 +127,7 @@ void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform) {
 	model_transform = glm::translate(model_transform, newDir * bone->length);
 	for (auto &child : bone->children) {
 		glm::mat4 child_transform = model_transform;
-		renderBoneCompletion(child, child_transform);
+		renderBoneCompletion(child, child_transform, bone->rotation + parent_rotation);
 	}
 }
 

@@ -121,7 +121,7 @@ int main(int argc, const char **argv) {
 
 		try {
 			// Initialise `app`
-			app.init();
+			app.init(argv[1], argv[2]);
 
 			// Loop until the GLFW window is marked to be closed
 			while (!glfwWindowShouldClose(window)) {
@@ -147,11 +147,11 @@ int main(int argc, const char **argv) {
 				// Actually tell OpenGL to clear the buffers
 				glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+				app.update();
 				// Create the GUI.
 				// Note: this does not draw the GUI
 				app.doGUI();
 
-				app.update_position();
 				// Draw the scene.
 				app.drawScene();
 

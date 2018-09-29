@@ -18,6 +18,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work/src/ex1.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/ex1.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/skeleton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/skeleton.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work/src/skeleton.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/work/src/skeleton.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/work/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,24 +40,41 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="837" />
-          <entry key="hpp" value="242" />
+          <entry key="cpp" value="4538" />
+          <entry key="hpp" value="511" />
+          <entry key="pos1" value="3" />
+          <entry key="pose1" value="2" />
+          <entry key="pose4" value="2" />
+          <entry key="txt" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="1079" />
+          <entry key="ObjectiveC" value="5049" />
+          <entry key="PLAIN_TEXT" value="112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="1" />
-          <entry key="hpp" value="1" />
+          <entry key="0pos3" value="1" />
+          <entry key="cpp" value="3" />
+          <entry key="foobar" value="1" />
+          <entry key="hpp" value="3" />
+          <entry key="inl" value="2" />
+          <entry key="pos1" value="1" />
+          <entry key="pos2" value="1" />
+          <entry key="pos5" value="1" />
+          <entry key="pose1" value="3" />
+          <entry key="pose2" value="1" />
+          <entry key="pose3" value="1" />
+          <entry key="pose4" value="2" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="2" />
+          <entry key="ObjectiveC" value="8" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
     </session>
@@ -64,13 +84,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
+            <state relative-caret-position="459">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/work/res/keyframes/config.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="112" selection-start-line="112" selection-end-line="112" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/detail/func_trigonometric.inl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="634">
+              <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+              <folding>
+                <element signature="e#14#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,20 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="153" column="37" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
-              <folding>
-                <element signature="e#14#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="357">
+              <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -109,29 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/work/src/spline.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="e#1#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>core</find>
-      <find>scene</find>
-      <find>rotation</find>
-      <find>drawS</find>
-      <find>drawSc</find>
-      <find>m_proj</find>
-      <find>projection</find>
       <find>selected ==</find>
       <find>vertex</find>
       <find>m_depth</find>
@@ -150,11 +187,18 @@
       <find>new</find>
       <find>catmull_</find>
       <find>50</find>
-      <find>update</find>
       <find>add</find>
       <find>clip</find>
       <find>[i]</find>
       <find>.x</find>
+      <find>apply</find>
+      <find>m_rotation</find>
+      <find>write</find>
+      <find>savef</find>
+      <find>main</find>
+      <find>bone</find>
+      <find>update(</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace>0.5 : -0.5</replace>
@@ -206,8 +250,6 @@
         <option value="$PROJECT_DIR$/work/src/cgra/mesh.cpp" />
         <option value="$PROJECT_DIR$/work/src/printer.cpp" />
         <option value="$PROJECT_DIR$/work/res/models/test_bone_3.asf" />
-        <option value="$PROJECT_DIR$/work/src/skeleton.hpp" />
-        <option value="$PROJECT_DIR$/work/src/skeleton.cpp" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/work/src/cgra/mesh.hpp" />
         <option value="$PROJECT_DIR$/work/src/spline.h" />
@@ -215,8 +257,14 @@
         <option value="$PROJECT_DIR$/work/src/spline.cpp" />
         <option value="$PROJECT_DIR$/work/src/spline.hpp" />
         <option value="$PROJECT_DIR$/work/src/main.cpp" />
+        <option value="$PROJECT_DIR$/work/src/skeleton.hpp" />
         <option value="$PROJECT_DIR$/work/src/ex1.hpp" />
+        <option value="$PROJECT_DIR$/work/res/keyframes/pose1" />
+        <option value="$PROJECT_DIR$/work/res/keyframes/pose4" />
+        <option value="$PROJECT_DIR$/work/res/keyframes/pos1" />
         <option value="$PROJECT_DIR$/work/src/ex1.cpp" />
+        <option value="$PROJECT_DIR$/work/src/skeleton.cpp" />
+        <option value="$PROJECT_DIR$/work/res/keyframes/config.txt" />
       </list>
     </option>
   </component>
@@ -265,7 +313,7 @@
               <item name="cgra-350-assignment-3" type="462c0819:PsiDirectoryNode" />
               <item name="work" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="keyframes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CGRA_PROJECT_a1" type="b2602c69:ProjectViewProjectNode" />
@@ -399,7 +447,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255159000" />
+    <option name="totallyTimeSpent" value="276833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -434,16 +482,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/gtc/constants.inl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work/res/shaders/oren-nayar.fs.glsl" />
-    <entry file="file://$PROJECT_DIR$/work/res/shaders/texture.fs.glsl" />
-    <entry file="file://$PROJECT_DIR$/work/res/shaders/texture.vs.glsl" />
     <entry file="file://$PROJECT_DIR$/work/res/shaders/cook-torrance.fs.glsl" />
     <entry file="file://$PROJECT_DIR$/work/src/cgra/shader.cpp">
       <provider selected="true" editor-type-id="text-editor">
@@ -578,13 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/cgra/mesh.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -592,24 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/detail/type_vec3.inl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="648" column="43" selection-start-line="648" selection-start-column="43" selection-end-line="648" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/cgra/bone.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1814">
-          <caret line="118" column="69" selection-start-line="118" selection-start-column="69" selection-end-line="118" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -637,6 +654,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/detail/type_vec3.inl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="657" column="43" selection-start-line="657" selection-start-column="43" selection-end-line="657" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/spline.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
@@ -647,30 +671,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/foobar">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pose2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pose3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="153" column="37" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+        <state relative-caret-position="357">
+          <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="634">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
           <folding>
             <element signature="e#14#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/work/vendor/glm/glm/detail/func_trigonometric.inl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pose1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pose4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/skeleton.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/0pos3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pos2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pos5">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/pos1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/src/skeleton.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/work/src/ex1.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="192" column="38" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
+        <state relative-caret-position="459">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/res/keyframes/config.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>

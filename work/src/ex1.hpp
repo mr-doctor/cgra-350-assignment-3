@@ -48,7 +48,7 @@ public:
         m_viewportSize.y = float(height);
     }
 
-    void init();
+    void init(std::string asf_file, std::string keyframe_file);
 
     void drawScene();
     void doGUI();
@@ -87,22 +87,22 @@ public:
 	static void draw(cgra::Mesh mesh, glm::vec3 position, glm::vec3 scale, glm::mat4 rotate, glm::vec3 global_translation,
 					 glm::vec3 global_scale, glm::mat4 global_rotation);
 
-	std::vector<glm::vec3> keyframes;
-	std::vector<glm::vec3> speed_curve;
+	int num_keyframes = 0;
 
-	void show_spline(std::vector<glm::vec3> &controls, int num_points, std::vector<glm::vec3> &points, bool main_spline);
+	int parseKeyframes(std::string filename);
 
-	std::vector<glm::vec3> new_points;
-	std::vector<glm::vec3> speed_points;
+	void update();
 
-	void update_position();
+	void line_to_rotations(std::string line);
 
-	float point_index = 0;
-	float speed = 1.0;
+	float keyframe_index = 0;
+	float speed = 0.1;
+
 	float m_depth = -1;
 
-
 	int selected = -1;
+
+	bool play = false;
 
 	glm::vec3 screen_to_world_coord(double mouse_x, double mouse_y);
 
@@ -110,14 +110,5 @@ public:
 	glm::mat4 m_proj;
 	static glm::mat4 m_model;
 
-	void manipulate(glm::vec3 mouse_point);
-
-	void update_spline();
-
-	bool left_held = false;
-
-	void update_speed_spline();
-
-	bool select_keyframe = false;
-	int catmull_divisions = 100;
+	void saveFile(const char *str);
 };

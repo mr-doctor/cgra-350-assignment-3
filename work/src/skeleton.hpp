@@ -83,6 +83,8 @@ struct bone {
 	dof_set freedom = dof_none;   // Degrees of freedom for the joint rotation
 	std::vector<bone *> children; // Pointers to bone children
 
+	std::vector<glm::vec3> frames;
+
 	// Completion and Challenge
 	glm::vec3 rotation;          // Rotation of joint in the basis (degrees)
 
@@ -116,7 +118,7 @@ public:
 
 	// YOUR CODE GOES HERE
 	// ...
-	void renderBoneCompletion(bone *bone, glm::mat4 model_transform);
+	void renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::vec3 parent_rotation);
 
 // Helper method
 int findBone(std::string);
