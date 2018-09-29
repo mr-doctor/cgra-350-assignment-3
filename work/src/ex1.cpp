@@ -46,8 +46,6 @@ void Application::init() {
 	glm::vec3 rotation(1.0f, 1.0f, 0.0f);
 	m_rotationMatrix = glm::rotate(glm::mat4(1.0f), 0.0f, glm::vec3(rotation[0], rotation[1], rotation[2]));
 
-	m_bone_mesh = loadObj(CGRA_SRCDIR "/res/models/frustrum-small.obj", 0);
-	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", 0);
 	m_cube_mesh = loadObj(CGRA_SRCDIR "/res/models/cube.obj", glm::vec3(1.0, 0.0, 0.0));
 	m_sphere_mesh_cyan = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 1.0));
 	m_sphere_mesh_yellow = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
@@ -85,9 +83,10 @@ float clip(float n, float lower, float upper) {
 }
 
 void Application::update_position() {
+	// Factors the speed of the object along the main spline by the ratio of x to y on the speed spline (offset so that it goes from 0 to 1)
 	float speed_mod = speed  * ((speed_points[((int) point_index)].x + 6.2f) / (speed_points[((int) point_index)].y + 3.0f));
 	if (point_index + speed >= new_points.size()) {
-		speed_mod = 0.0f;//speed - ((point_index + speed) - new_points.size());
+		speed_mod = 0.0f;
 		point_index = 0.0f;
 	}
 	point_index += speed_mod;
@@ -180,24 +179,18 @@ void Application::show_spline(std::vector<glm::vec3> &controls, int num_points, 
 	for (float t = 0; t < 1; t += 1.0f / ((float) num_points)) {
 		glm::vec3 pt = s.map(t);
 
+		// bounds the speed spline to inside the graph (we can't go back in distance or t-value)
 		if (!main_spline) {
-//			printer::print(pt);
-			/*pt.x = clip(pt.x, -5.3f, -6.1f);
-			pt.y = clip(pt.y, -2.1f, -2.9f);*/
 			pt.x = std::max(pt.x, -6.2f);
 			pt.y = std::max(pt.y, -3.0f);
 
 			glm::vec3 prev = (points.empty()) ? controls[1] : points[points.size() - 1];
-//			printer::print(pt);
 			if (pt.x > prev.x) {
-//				printer::print(std::to_string(pt.x) + " is greater than " + std::to_string(prev.x));
 				pt.x = prev.x;
 			}
 			if (pt.y > prev.y) {
 				pt.y = prev.y;
 			}
-//			printer::print(pt);
-//			printer::print("");
 
 		}
 
@@ -454,15 +447,6 @@ void Application::onCursorPos(double xpos, double ypos) {
 		apply_arcball(currentMousePosition);
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_RIGHT]) {
-		// TODO - make this work
-		/*if (m_depth == -1) {
-			glReadPixels(int(xpos), int(m_viewportSize.y - ypos), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
-		}
-		glm::vec3 new_point = screen_to_world_coord(xpos, ypos);
-		new_point.z = 0;
-
-		keyframes.push_back(new_point);
-		update_spline();*/
 	}
 
 

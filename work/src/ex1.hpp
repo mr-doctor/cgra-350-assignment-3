@@ -65,8 +65,6 @@ public:
 
 	void set_shaders(const char *vertex, const char *fragment);
 
-	Skeleton m_skeleton = Skeleton("");
-
 	cgra::Mesh loadObj(const char *filename, glm::vec3 colour);
 
 	static cgra::Mesh m_bone_mesh;
