@@ -75,15 +75,6 @@ void Application::line_to_rotations(std::string line) {
 	);
 }
 
-glm::vec3 to_rad(glm::vec3 in) {
-	glm::vec3 out;
-	for (int i = 0; i < 3; ++i) {
-		out[i] = glm::radians(in[i]);
-	}
-
-	return out;
-}
-
 void Application::update() {
 	if (num_keyframes == 0) {
 		return;
@@ -126,6 +117,8 @@ int Application::parseKeyframes(std::string filename) {
 	
 	if (!kf_file.is_open()) {
 		std::cerr << "File not open\n";
+		// This line is to crash the program when an invalid file is found
+		int kill = 1 / 0;
 		return -1;
 	}
 
@@ -134,6 +127,8 @@ int Application::parseKeyframes(std::string filename) {
 		std::ifstream pose_file(CGRA_SRCDIR "/res/keyframes/" + line);
 		if (!pose_file.is_open()) {
 			std::cerr << "File not open\n";
+			// This line is to crash the program when an invalid file is found
+			int kill = 1 / 0;
 			return -1;
 		}
 		std::vector<std::string> curr_frame;
