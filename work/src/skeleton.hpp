@@ -112,10 +112,7 @@ public:
 
 	std::vector<bone> m_bones;
 	Skeleton(std::string);
-	void renderSkeleton(glm::mat4 model_transform,
-						glm::vec3 global_translation,
-						glm::vec3 global_scale,
-						glm::mat4 global_rotation, bool core);
+	void renderSkeleton(glm::mat4 model_transform);
 	void readAMC(std::string);
 
 	// YOUR CODE GOES HERE
@@ -125,7 +122,4 @@ public:
 // Helper method
 int findBone(std::string);
 
-	void
-	renderBoneCore(bone *bone, glm::vec3 position, glm::mat4 rotation, glm::vec3 global_translation, glm::vec3 global_scale,
-				   glm::mat4 global_rotation);
 };

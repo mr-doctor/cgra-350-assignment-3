@@ -31,6 +31,7 @@
 cgra::Program Application::m_program;
 glm::mat4 Application::m_model;
 cgra::Mesh Application::m_bone_mesh;
+cgra::Mesh Application::m_bone_mesh_yellow;
 cgra::Mesh Application::m_sphere_mesh_cyan;
 cgra::Mesh Application::m_sphere_mesh_red;
 cgra::Mesh Application::m_sphere_mesh_green;
@@ -49,6 +50,7 @@ void Application::init(std::string amc_file, std::string keyframe_file) {
 
 	m_bone_mesh = loadObj(CGRA_SRCDIR "/res/models/frustrum-small.obj", glm::vec3(0.1, 0.1, 0.1));
 	m_bone_segment_mesh = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.2, 0.2, 0.2));
+	m_bone_mesh_yellow = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
 
 	m_skeleton = Skeleton(CGRA_SRCDIR "/res/models/" + amc_file);
 
@@ -57,7 +59,7 @@ void Application::init(std::string amc_file, std::string keyframe_file) {
 	m_cube_mesh = loadObj(CGRA_SRCDIR "/res/models/cube.obj", glm::vec3(1.0, 0.0, 0.0));
 	m_sphere_mesh_cyan = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 1.0));
 	m_sphere_mesh_yellow = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 1.0, 0.0));
-	m_sphere_mesh_red = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 0.0, 0.0));
+	m_sphere_mesh_red = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(1.0, 0.0, 1.0));
 	m_sphere_mesh_green = loadObj(CGRA_SRCDIR "/res/models/sphere.obj", glm::vec3(0.0, 1.0, 0.0));
 
 	for (auto bone : m_skeleton.m_bones) {
@@ -117,9 +119,7 @@ int Application::parseKeyframes(std::string filename) {
 
 	if (!kf_file.is_open()) {
 		std::cerr << "File not open\n";
-		// This line is to crash the program when an invalid file is found
-		int kill = 1 / 0;
-		return -1;
+		exit(1);
 	}
 
 	int frames = 0;
@@ -127,9 +127,7 @@ int Application::parseKeyframes(std::string filename) {
 		std::ifstream pose_file(CGRA_SRCDIR "/res/keyframes/" + line);
 		if (!pose_file.is_open()) {
 			std::cerr << "File not open\n";
-			// This line is to crash the program when an invalid file is found
-			int kill = 1 / 0;
-			return -1;
+			exit(1);
 		}
 		std::vector<std::string> curr_frame;
 		for (std::string line2; std::getline(pose_file, line2);) {
@@ -272,6 +270,12 @@ void Application::apply_arcball(glm::vec2 current_mouse_XY) {
 void Application::drawScene() {
 	// Calculate the aspect ratio of the viewport;
 	// width / height
+	glm::mat4 viewMatrix(1);
+	viewMatrix[3] = glm::vec4(0, 0, -10, 1);
+	m_program.setViewMatrix(viewMatrix);
+
+	m_view = viewMatrix;
+
 	float aspectRatio = m_viewportSize.x / m_viewportSize.y;
 	// Calculate the projection matrix with a field-of-view of 45 degrees
 	m_proj = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
@@ -289,72 +293,16 @@ void Application::drawScene() {
 	 *    `glm::scale`                                          *
 	 ************************************************************/
 
-	m_model = glm::mat4(1.0f);
-	m_model *= m_rotationMatrix;
+	m_model = m_rotationMatrix * glm::mat4(1.0f);
 
 //	m_model *= glm::scale(m_model, glm::vec3(m_scale));
 
-	m_skeleton.renderSkeleton(m_model, m_translation, glm::vec3(m_scale), m_rotationMatrix, false);
-}
-
-void Application::draw(cgra::Mesh mesh,
-					   glm::vec3 position,
-					   glm::vec3 scale,
-					   glm::mat4 rotate,
-					   glm::vec3 global_translation,
-					   glm::vec3 global_scale,
-					   glm::mat4 global_rotation) {
-	glm::mat4 model_transform = m_model;
-
-	model_transform = glm::translate(model_transform, glm::vec3(0, 0, 0));
-
-	// Scale so that translation works properly
-	model_transform = glm::scale(model_transform, glm::vec3(global_scale));
-
-	model_transform *= global_rotation;
-
-	model_transform *= rotate;
-
-	model_transform = glm::translate(model_transform, position);
-
-	model_transform = glm::scale(model_transform, scale);
-
-	m_program.setModelMatrix(model_transform);
-
-	mesh.draw();
-
-}
-
-void Application::draw_bone(cgra::Mesh mesh,
-							glm::vec3 scale,
-							glm::mat4 rotate,
-							glm::vec3 global_translation,
-							glm::vec3 global_scale,
-							glm::mat4 global_rotation) {
-
-	glm::mat4 model_transform(1.0f);
-
-	model_transform = glm::translate(model_transform, global_translation);
-
-	// Scale so that translation works properly
-	model_transform = glm::scale(model_transform, glm::vec3(global_scale));
-
-	model_transform *= global_rotation;
-
-	model_transform *= rotate;
-
-//	model_transform *= glm::scale(model_transform, glm::vec3(1.0f / global_scale));
-
-	model_transform = glm::scale(model_transform, scale);
-
-	m_program.setModelMatrix(model_transform);
-
-	mesh.draw();
+	m_skeleton.renderSkeleton(m_model);
 }
 
 void Application::draw(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 model_transform) {
 
-	model_transform *= glm::scale(model_transform, scale);
+	model_transform = glm::scale(model_transform, scale);
 
 	m_program.setModelMatrix(model_transform);
 
@@ -425,11 +373,28 @@ void Application::doGUI() {
 
 	static std::string filename;
 	filename.resize(20);
-	ImGui::InputText("File .pos", &filename[0], filename.size(), ImGuiInputTextFlags_EnterReturnsTrue);
 
-	if (ImGui::Button("Save")) {
-		saveFile((CGRA_SRCDIR "/res/keyframes/" + filename).c_str());
+	if (save) {
+		ImGui::OpenPopup("Save This Pose");
+
+		if (ImGui::BeginPopupModal("Save This Pose", nullptr, ImGuiWindowFlags_AlwaysAutoResize)) {
+			ImGui::InputText("File .pos", &filename[0], filename.size());
+
+			if (ImGui::Button("Save", ImVec2(150, 0))) {
+				saveFile((CGRA_SRCDIR "/res/keyframes/" + filename).c_str());
+				ImGui::CloseCurrentPopup();
+				save = false;
+			}
+
+			if (ImGui::Button("Cancel", ImVec2(150, 0))) {
+				ImGui::CloseCurrentPopup();
+				save = false;
+			}
+
+			ImGui::EndPopup();
+		}
 	}
+
 
 	ImGui::End();
 }
@@ -439,14 +404,17 @@ void Application::doGUI() {
 
 void Application::onMouseButton(int button, int action, int) {
 
-	if (button == GLFW_MOUSE_BUTTON_LEFT) {
-		auto xpos = int(m_mousePosition.x);
-		auto ypos = int(m_viewportSize.y - m_mousePosition.y);
-		glm::vec4 viewport(0, 0, m_viewportSize.x, m_viewportSize.y);
-		float m_depth;
-		glReadPixels(xpos, ypos, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
-		glm::vec3 worldPos = glm::unProject(glm::vec3(xpos, ypos, m_depth), m_view, m_proj, viewport);
-		manipulate(worldPos);
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+
+		if (control_held) {
+			auto xpos = int(m_mousePosition.x);
+			auto ypos = int(m_viewportSize.y - m_mousePosition.y);
+			glm::vec4 viewport(0, 0, m_viewportSize.x, m_viewportSize.y);
+			float m_depth;
+			glReadPixels(xpos, ypos, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
+			glm::vec3 worldPos = glm::unProject(glm::vec3(xpos, ypos, m_depth), m_view, m_proj, viewport);
+			manipulate(worldPos);
+		}
 	}
 
 	if (button >= 0 && button < 3) {
@@ -456,8 +424,7 @@ void Application::onMouseButton(int button, int action, int) {
 }
 
 void Application::find_bone(glm::vec3 pos) {
-	printer::print(pos);
-	float threshold = 0.1f;
+	float threshold = 0.5f;
 	bone* current = nullptr;
 	bone* last_selected = nullptr;
 	for (auto &bone : m_skeleton.m_bones) {
@@ -477,14 +444,17 @@ void Application::find_bone(glm::vec3 pos) {
 
 void Application::manipulate(glm::vec3 mouse_point) {
 	find_bone(mouse_point);
+	int count = 0;
 	for (auto &bone : m_skeleton.m_bones) {
 		if (bone.selected) {
 			selected_bone = &bone;
 			break;
 		}
+		count++;
 	}
-
-
+	if (count == m_skeleton.m_bones.size()) {
+		selected_bone = nullptr;
+	}
 }
 
 void Application::onCursorPos(double xpos, double ypos) {
@@ -496,7 +466,13 @@ void Application::onCursorPos(double xpos, double ypos) {
 //    glm::vec2 mousePositionDelta = currentMousePosition - m_mousePosition;
 
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_LEFT]) {
-
+		if (!control_held) {
+			for (auto &b: m_skeleton.m_bones) {
+				if (&b == selected_bone) {
+					b.rotation[current_axis] += (xpos - m_mousePosition.x) / 20;
+				}
+			}
+		}
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_MIDDLE]) {
 		apply_arcball(currentMousePosition);
@@ -513,6 +489,9 @@ void Application::onKey(int key, int scancode, int action, int mods) {
 	(void) scancode;
 	(void) action;
 	(void) mods;
+	if (key == GLFW_KEY_A && action == GLFW_PRESS) {
+		play = true;
+	}
 	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
 		save = true;
 	}

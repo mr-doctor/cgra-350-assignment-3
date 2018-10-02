@@ -76,16 +76,9 @@ public:
 	static cgra::Mesh m_sphere_mesh_green;
 	cgra::Mesh m_cube_mesh;
 	static cgra::Mesh m_bone_segment_mesh;
-
-	static void draw_bone(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 rotate,
-	                      glm::vec3 global_translation,
-	                      glm::vec3 global_scale, glm::mat4 global_rotation);
+	static cgra::Mesh m_bone_mesh_yellow;
 
 	static void draw(cgra::Mesh mesh, glm::vec3 scale, glm::mat4 model_transform);
-
-
-	static void draw(cgra::Mesh mesh, glm::vec3 position, glm::vec3 scale, glm::mat4 rotate, glm::vec3 global_translation,
-					 glm::vec3 global_scale, glm::mat4 global_rotation);
 
 	int num_keyframes = 0;
 
@@ -113,7 +106,7 @@ public:
 
 	bool select_joint;
 	bool save;
-	int current_axis;
+	int current_axis = 0;
 	bool control_held = false;
 	int last_selected = -2;
 	static bone *selected_bone;

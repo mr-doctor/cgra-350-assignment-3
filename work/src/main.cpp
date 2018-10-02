@@ -120,6 +120,10 @@ int main(int argc, const char **argv) {
 		glfwSetWindowUserPointer(window, reinterpret_cast<void *>(&app));
 
 		try {
+			if (argc != 3) {
+				std::cout << "Invalid arguments. Provide a skeleton file and a config file.";
+				exit(1);
+			}
 			// Initialise `app`
 			app.init(argv[1], argv[2]);
 

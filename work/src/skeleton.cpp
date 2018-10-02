@@ -82,16 +82,9 @@ Skeleton::Skeleton(string filename) {
 // [Assignment 2] :
 // You may need to revise this function for Completion/Challenge
 //-------------------------------------------------------------
-void Skeleton::renderSkeleton(glm::mat4 model_transform,
-							  glm::vec3 global_translation,
-							  glm::vec3 global_scale,
-							  glm::mat4 global_rotation, bool core) {
+void Skeleton::renderSkeleton(glm::mat4 model_transform) {
 
-	if (core) {
-		renderBoneCore(&m_bones[0], glm::vec3(0), glm::mat4(1), global_translation, global_scale, global_rotation);
-	} else {
-		renderBoneCompletion(&m_bones[0], model_transform, glm::vec3(0));
-	}
+	renderBoneCompletion(&m_bones[0], glm::scale(model_transform,glm::vec3(2)), glm::vec3(0));
 }
 
 
@@ -107,16 +100,19 @@ void Skeleton::renderSkeleton(glm::mat4 model_transform,
 // but should go on to draw its children
 //-------------------------------------------------------------
 void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::vec3 parent_rotation) {
+	bool sel = bone->selected;
 
-	Application::draw((bone == Application::selected_bone) ? Application::m_sphere_mesh_red : Application::m_sphere_mesh_cyan, glm::vec3(0.05f), model_transform);
+	Application::draw(sel ? Application::m_sphere_mesh_red : Application::m_sphere_mesh_cyan, glm::vec3(0.025f), model_transform);
+
 	bone->world_pos = glm::vec3(model_transform * glm::vec4(0,0,0,1));
+
 	glm::mat4 newRot = glm::eulerAngleXYZ(bone->rotation.x + parent_rotation.x,
 										  bone->rotation.y + parent_rotation.y,
 										  bone->rotation.z + parent_rotation.z);
 	glm::vec3 newDir = (newRot * glm::vec4(bone->boneDir, 1)).xyz();
 	if (bone->name != "root") {
 		for (float f = 0; f < 1.0f; f += 0.1) {
-			Application::draw(Application::m_bone_segment_mesh, glm::vec3(0.02),
+			Application::draw(sel ? Application::m_bone_mesh_yellow : Application::m_bone_segment_mesh, glm::vec3(0.01),
 							  glm::translate(model_transform, newDir * bone->length * f));
 		}
 	}
@@ -124,28 +120,6 @@ void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::
 	for (auto &child : bone->children) {
 		glm::mat4 child_transform = model_transform;
 		renderBoneCompletion(child, child_transform, bone->rotation + parent_rotation);
-	}
-}
-
-void Skeleton::renderBoneCore(bone *bone,
-							  glm::vec3 position,
-							  glm::mat4 rotation,
-							  glm::vec3 global_translation,
-							  glm::vec3 global_scale,
-							  glm::mat4 global_rotation) {
-
-	Application::draw(Application::m_sphere_mesh_cyan, position, glm::vec3(1.2f * 0.1f), glm::mat4(1), global_translation,
-					  global_scale, global_rotation);
-
-	glm::vec3 new_pos = position + bone->boneDir * bone->length * 5.0f;
-	if (bone->name != "root") {
-
-		Application::draw_bone(Application::m_bone_mesh, glm::vec3(1, 1, bone->length * 5.0f),
-							   rotation, global_translation, global_scale, global_rotation);
-	}
-	for (auto &child : bone->children) {
-		glm::mat4 align = glm::inverse(glm::lookAt(new_pos, new_pos - child->boneDir, glm::vec3(0, 1, 0)));
-		renderBoneCore(child, new_pos, align, global_translation, global_scale, global_rotation);
 	}
 }
 

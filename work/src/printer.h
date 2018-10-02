@@ -22,7 +22,7 @@ public:
 
 	static void print(glm::mat4 matrix);
 
-	static void print(bool b);
+//	static void print(bool b);
 };
 
 
