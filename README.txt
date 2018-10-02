@@ -7,12 +7,13 @@ FOR STATE 1.1:
 	Edit the curve by dragging the yellow control points.
 	Add new keyframes using the button. They will be created at the position defined by the input fields.
 	Manipulate the speed curve in the bottom right by moving the two red points NOT connected by a green line.
+	Use the slider to change the overall speed.
 
 
 FOR STAGE 2.2:
 	To run the program:
 		To demonstrate the poses:
-			Run the .exe file that is created when building the files in stage_2_2.zip with the arguments "priman.asf" and "config.txt" to demonstrate the 6 poses.
+			Run the .exe file that is created when building the files in stage_2_2_3.zip with the arguments "priman.asf" and "config.txt" to demonstrate the 6 poses.
 		
 		To add more frames:
 			Run the .exe file with the arguments "priman.asf" and an empty text file.
@@ -32,3 +33,5 @@ FOR STAGE 2.2:
 	1pos0 - standing
 	2pos0 - sitting
 	3pos0 - squatting
+	
+	Use the slider to change the overall speed.

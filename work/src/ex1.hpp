@@ -98,17 +98,23 @@ public:
 	float keyframe_index = 0;
 	float speed = 0.1;
 
-	float m_depth = -1;
-
 	int selected = -1;
 
 	bool play = false;
 
-	glm::vec3 screen_to_world_coord(double mouse_x, double mouse_y);
+	void manipulate(glm::vec3 mouse_point);
+	void find_bone(glm::vec3 pos);
 
 	glm::mat4 m_view;
 	glm::mat4 m_proj;
 	static glm::mat4 m_model;
 
 	void saveFile(const char *str);
+
+	bool select_joint;
+	bool save;
+	int current_axis;
+	bool control_held = false;
+	int last_selected = -2;
+	static bone *selected_bone;
 };

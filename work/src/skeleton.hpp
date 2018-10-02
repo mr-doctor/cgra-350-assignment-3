@@ -82,8 +82,10 @@ struct bone {
 	glm::vec3 basisRot;          // Euler angle rotations for the bone basis
 	dof_set freedom = dof_none;   // Degrees of freedom for the joint rotation
 	std::vector<bone *> children; // Pointers to bone children
+	glm::vec3 world_pos = glm::vec3(0);
 
 	std::vector<glm::vec3> frames;
+	bool selected = false;
 
 	// Completion and Challenge
 	glm::vec3 rotation;          // Rotation of joint in the basis (degrees)

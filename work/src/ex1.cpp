@@ -35,6 +35,7 @@ cgra::Mesh Application::m_sphere_mesh_cyan;
 cgra::Mesh Application::m_sphere_mesh_red;
 cgra::Mesh Application::m_sphere_mesh_green;
 cgra::Mesh Application::m_bone_segment_mesh;
+bone * Application::selected_bone;
 
 void Application::init(std::string amc_file, std::string keyframe_file) {
 	set_shaders(CGRA_SRCDIR "/res/shaders/simple.vs.glsl", CGRA_SRCDIR "/res/shaders/simple.fs.glsl");
@@ -113,7 +114,7 @@ void Application::update() {
 
 int Application::parseKeyframes(std::string filename) {
 	std::ifstream kf_file(filename);
-	
+
 	if (!kf_file.is_open()) {
 		std::cerr << "File not open\n";
 		// This line is to crash the program when an invalid file is found
@@ -233,8 +234,8 @@ void Application::set_shaders(const char *vertex, const char *fragment) {
 glm::vec3 calculate_normalised_vector(glm::vec2 mouse_pos, glm::vec2 view_port_size) {
 	// Convert to model coordinates
 	glm::vec3 direction{mouse_pos.x / view_port_size.x * 2 - 1,
-	                    -(mouse_pos.y / view_port_size.y * 2 - 1),
-	                    0};
+						-(mouse_pos.y / view_port_size.y * 2 - 1),
+						0};
 
 	float length = glm::length(direction);
 
@@ -253,8 +254,8 @@ void Application::apply_arcball(glm::vec2 current_mouse_XY) {
 	glm::vec3 previous_arcball_direction = calculate_normalised_vector(m_mousePosition, m_viewportSize);
 
 	float angle = previous_arcball_direction.x * current_arcball_direction.x +
-	              previous_arcball_direction.y * current_arcball_direction.y +
-	              previous_arcball_direction.z * current_arcball_direction.z;
+				  previous_arcball_direction.y * current_arcball_direction.y +
+				  previous_arcball_direction.z * current_arcball_direction.z;
 
 	glm::vec3 normal = glm::cross(previous_arcball_direction, current_arcball_direction);
 	// If there is nothing to rotate around
@@ -297,12 +298,12 @@ void Application::drawScene() {
 }
 
 void Application::draw(cgra::Mesh mesh,
-                       glm::vec3 position,
-                       glm::vec3 scale,
-                       glm::mat4 rotate,
-                       glm::vec3 global_translation,
-                       glm::vec3 global_scale,
-                       glm::mat4 global_rotation) {
+					   glm::vec3 position,
+					   glm::vec3 scale,
+					   glm::mat4 rotate,
+					   glm::vec3 global_translation,
+					   glm::vec3 global_scale,
+					   glm::mat4 global_rotation) {
 	glm::mat4 model_transform = m_model;
 
 	model_transform = glm::translate(model_transform, glm::vec3(0, 0, 0));
@@ -325,11 +326,11 @@ void Application::draw(cgra::Mesh mesh,
 }
 
 void Application::draw_bone(cgra::Mesh mesh,
-                            glm::vec3 scale,
-                            glm::mat4 rotate,
-                            glm::vec3 global_translation,
-                            glm::vec3 global_scale,
-                            glm::mat4 global_rotation) {
+							glm::vec3 scale,
+							glm::mat4 rotate,
+							glm::vec3 global_translation,
+							glm::vec3 global_scale,
+							glm::mat4 global_rotation) {
 
 	glm::mat4 model_transform(1.0f);
 
@@ -368,7 +369,8 @@ void Application::saveFile(const char *str) {
 	}
 
 	for (auto bone : m_skeleton.m_bones) {
-		out_file << bone.name << " " << bone.rotation.x << " " << bone.rotation.y << " " << bone.rotation.z << std::endl;
+		out_file << bone.name << " " << bone.rotation.x << " " << bone.rotation.y << " " << bone.rotation.z
+				 << std::endl;
 	}
 
 	out_file.close();
@@ -409,6 +411,12 @@ void Application::doGUI() {
 	}
 
 	ImGui::SliderFloat("Speed", &speed, 0.0f, 2.5f);
+	if (selected_bone != nullptr) {
+		bone* b = selected_bone;
+		ImGui::Text("%s (%f,%f,%f)", b->name.c_str(), b->rotation.x, b->rotation.y, b->rotation.z);
+	} else {
+		ImGui::Text("No joint selected");
+	}
 
 	if (ImGui::TreeNode("Bones")) {
 		addBones(m_skeleton.m_bones[m_skeleton.findBone("root")]);
@@ -430,18 +438,53 @@ void Application::doGUI() {
 // Input Handlers
 
 void Application::onMouseButton(int button, int action, int) {
+
+	if (button == GLFW_MOUSE_BUTTON_LEFT) {
+		auto xpos = int(m_mousePosition.x);
+		auto ypos = int(m_viewportSize.y - m_mousePosition.y);
+		glm::vec4 viewport(0, 0, m_viewportSize.x, m_viewportSize.y);
+		float m_depth;
+		glReadPixels(xpos, ypos, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
+		glm::vec3 worldPos = glm::unProject(glm::vec3(xpos, ypos, m_depth), m_view, m_proj, viewport);
+		manipulate(worldPos);
+	}
+
 	if (button >= 0 && button < 3) {
 		// Set the 'down' state for the appropriate mouse button
 		m_mouseButtonDown[button] = action == GLFW_PRESS;
 	}
 }
 
-glm::vec3 Application::screen_to_world_coord(double mouse_x, double mouse_y) {
-	mouse_y = m_viewportSize.y - mouse_y;
-	glm::vec4 viewport(0, 0, m_viewportSize.x, m_viewportSize.y);
-	// converts screen points to in-world coordinates using glm and the three matrices
-	glm::vec3 worldPos = glm::unProject(glm::vec3(mouse_x, mouse_y, m_depth), m_view * m_model, m_proj, viewport);
-	return worldPos;
+void Application::find_bone(glm::vec3 pos) {
+	printer::print(pos);
+	float threshold = 0.1f;
+	bone* current = nullptr;
+	bone* last_selected = nullptr;
+	for (auto &bone : m_skeleton.m_bones) {
+		if (bone.selected) {
+			last_selected = &bone;
+		}
+		bone.selected = false;
+		float distance = glm::distance2(bone.world_pos, pos);
+		if (distance < threshold) {
+			threshold = distance;
+			current = &bone;
+		}
+	}
+	if (current == nullptr || last_selected == current) return;
+	current->selected = true;
+}
+
+void Application::manipulate(glm::vec3 mouse_point) {
+	find_bone(mouse_point);
+	for (auto &bone : m_skeleton.m_bones) {
+		if (bone.selected) {
+			selected_bone = &bone;
+			break;
+		}
+	}
+
+
 }
 
 void Application::onCursorPos(double xpos, double ypos) {
@@ -453,20 +496,12 @@ void Application::onCursorPos(double xpos, double ypos) {
 //    glm::vec2 mousePositionDelta = currentMousePosition - m_mousePosition;
 
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_LEFT]) {
+
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_MIDDLE]) {
 		apply_arcball(currentMousePosition);
 	}
 	if (m_mouseButtonDown[GLFW_MOUSE_BUTTON_RIGHT]) {
-		// TODO - make this work
-		/*if (m_depth == -1) {
-			glReadPixels(int(xpos), int(m_viewportSize.y - ypos), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &m_depth);
-		}
-		glm::vec3 new_point = screen_to_world_coord(xpos, ypos);
-		new_point.z = 0;
-
-		keyframes.push_back(new_point);
-		update_spline();*/
 	}
 
 
@@ -475,11 +510,26 @@ void Application::onCursorPos(double xpos, double ypos) {
 }
 
 void Application::onKey(int key, int scancode, int action, int mods) {
-	// `(void)foo` suppresses unused variable warnings
-	(void) key;
 	(void) scancode;
 	(void) action;
 	(void) mods;
+	if (key == GLFW_KEY_S && action == GLFW_PRESS) {
+		save = true;
+	}
+	if (key == GLFW_KEY_X && action == GLFW_PRESS) {
+		current_axis ++;
+		if (current_axis > 2) {
+			current_axis = 0;
+		}
+	}
+	control_held = mods == GLFW_MOD_CONTROL;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+#else
+	//Glfw seemed to invert itself if no other key is held
+	if (key == GLFW_KEY_LEFT_CONTROL || key == GLFW_KEY_RIGHT_CONTROL) {
+		control_held = mods != GLFW_MOD_CONTROL;
+	}
+#endif
 }
 
 void Application::onScroll(double xoffset, double yoffset) {

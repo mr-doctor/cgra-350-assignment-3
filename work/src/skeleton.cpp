@@ -108,8 +108,8 @@ void Skeleton::renderSkeleton(glm::mat4 model_transform,
 //-------------------------------------------------------------
 void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::vec3 parent_rotation) {
 
-	Application::draw(Application::m_sphere_mesh_cyan, glm::vec3(0.05f), model_transform);
-
+	Application::draw((bone == Application::selected_bone) ? Application::m_sphere_mesh_red : Application::m_sphere_mesh_cyan, glm::vec3(0.05f), model_transform);
+	bone->world_pos = glm::vec3(model_transform * glm::vec4(0,0,0,1));
 	glm::mat4 newRot = glm::eulerAngleXYZ(bone->rotation.x + parent_rotation.x,
 										  bone->rotation.y + parent_rotation.y,
 										  bone->rotation.z + parent_rotation.z);
@@ -119,11 +119,7 @@ void Skeleton::renderBoneCompletion(bone *bone, glm::mat4 model_transform, glm::
 			Application::draw(Application::m_bone_segment_mesh, glm::vec3(0.02),
 							  glm::translate(model_transform, newDir * bone->length * f));
 		}
-		/*glm::quat rotate = glm::rotation(glm::vec3(0, 0, 1), newDir);
-		glm::mat4 drawT = model_transform;
-		drawT = glm::rotate(drawT, rotate.w, glm::vec3(rotate.x, rotate.y, rotate.z));*/
 	}
-
 	model_transform = glm::translate(model_transform, newDir * bone->length);
 	for (auto &child : bone->children) {
 		glm::mat4 child_transform = model_transform;

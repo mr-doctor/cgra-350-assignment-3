@@ -33,6 +33,10 @@ void printer::print(float f) {
 	std::cout << f << std::endl;
 }
 
+void printer::print(bool b) {
+	std::cout << ((b) ? "true" : "false") << std::endl;
+}
+
 void printer::print(Skeleton skeleton) {
 	for (const auto &bone : skeleton.m_bones) {
 		print(bone);

@@ -21,6 +21,8 @@ public:
 	static void print(const std::string &string);
 
 	static void print(glm::mat4 matrix);
+
+	static void print(bool b);
 };
 
 
